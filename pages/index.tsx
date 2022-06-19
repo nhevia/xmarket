@@ -5,12 +5,12 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>My X App</title>
-        <meta name="description" content="Just my X App" />
+        <title>Welcome to XMarket</title>
+        <meta name="description" content="Just an X Market" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <p>Wololo</p>
+        <section></section>
       </main>
     </div>
   );
