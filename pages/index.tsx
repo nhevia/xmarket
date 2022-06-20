@@ -9,9 +9,6 @@ const Home: NextPage = () => {
         <meta name="description" content="Just an X Market" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <section></section>
-      </main>
     </div>
   );
 };

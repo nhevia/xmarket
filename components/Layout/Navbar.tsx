@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-menu">
@@ -10,12 +12,19 @@ const Navbar = () => {
             <a className="navbar-item">Home</a>
           </Link>
 
-          <div className="navbar-item has-dropdown is-hoverable">
+          <div
+            className="navbar-item has-dropdown is-hoverable"
+            key={router.pathname}
+          >
             <a className="navbar-link">Outfit</a>
 
             <div className="navbar-dropdown">
-              <a className="navbar-item">T-shirts</a>
-              <a className="navbar-item">Pants</a>
+              <Link href="/products">
+                <a className="navbar-item">T-shirts</a>
+              </Link>
+              <Link href="/">
+                <a className="navbar-item">Pants</a>
+              </Link>
               <a className="navbar-item">Sweatshirts</a>
               <a className="navbar-item">Shoes</a>
               <hr className="navbar-divider" />
