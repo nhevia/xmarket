@@ -30,3 +30,9 @@ main {
 footer {
   margin-top: auto;
 }
+
+:root {
+  --star-size: 18px;
+  --star-color: #fff;
+  --star-background: #fc0;
+}

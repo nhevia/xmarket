@@ -1,34 +1,28 @@
 import React from 'react';
+import fs from 'fs';
+import ProductGrid from '../../components/Products/ProductsGrid';
+import { Product } from '../../types/types';
 
-const Products = () => {
+interface Products {
+  [product: string]: Array<Product>;
+}
+
+export default function Products({ productsData }: Products) {
   return (
-    <div className="columns is-mobile is-multiline">
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        1
-      </div>
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        2
-      </div>
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        3
-      </div>
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        4
-      </div>
-    </div>
+    <>
+      <ProductGrid productsData={productsData} />
+    </>
   );
-};
+}
 
-export default Products;
+export const getStaticProps = () => {
+  const productsData = JSON.parse(
+    fs.readFileSync('__mocks__/products.json').toString()
+  );
+
+  return {
+    props: {
+      productsData,
+    },
+  };
+};
