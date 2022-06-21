@@ -1,6 +1,6 @@
 import React from 'react';
 import fs from 'fs';
-import ProductGrid from '@components/Products/ProductsGrid';
+import { ProductsGrid } from '@components/products';
 import { Product } from 'types/app';
 
 interface Products {
@@ -10,7 +10,7 @@ interface Products {
 export default function Products({ productsData }: Products) {
   return (
     <>
-      <ProductGrid productsData={productsData} />
+      <ProductsGrid productsData={productsData} />
     </>
   );
 }

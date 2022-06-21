@@ -1,6 +1,6 @@
 import React from 'react';
 import { Product } from 'types/app';
-import ProductCard from './ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
 
 interface Products {
   [product: string]: Array<Product>;

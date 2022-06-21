@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { PropsWithChildren } from 'types/app';
 
-const Layout = ({ children }) => {
+const Layout = (props: PropsWithChildren) => {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main>{props.children}</main>
       <Footer />
     </>
   );
