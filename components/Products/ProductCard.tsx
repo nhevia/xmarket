@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Product } from '../../types/types';
+import { Product } from 'types/app';
 
 interface ProductCard {
   [product: string]: Product;
