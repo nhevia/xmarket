@@ -9,3 +9,7 @@ export interface Product {
   rating: { rate: number; count: number };
   stock: boolean;
 }
+
+export interface PropsWithChildren {
+  children: React.ReactNode;
+}

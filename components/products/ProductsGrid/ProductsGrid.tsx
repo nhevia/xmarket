@@ -1,6 +1,7 @@
 import React from 'react';
-import { Product } from '../../types/types';
-import ProductCard from './ProductCard';
+import { Product } from 'types/app';
+import ProductCard from '../ProductCard/ProductCard';
+import s from './ProductsGrid.module.css';
 
 interface Products {
   [product: string]: Array<Product>;
@@ -8,7 +9,7 @@ interface Products {
 
 const ProductsGrid = ({ productsData }: Products) => {
   return (
-    <div className="grid">
+    <div className={s.grid}>
       {productsData?.map((product: Product) => (
         <React.Fragment key={product.id}>
           <ProductCard product={product} />

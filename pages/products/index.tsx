@@ -1,7 +1,7 @@
 import React from 'react';
 import fs from 'fs';
-import ProductGrid from '../../components/Products/ProductsGrid';
-import { Product } from '../../types/types';
+import { ProductsGrid } from '@components/products';
+import { Product } from 'types/app';
 
 interface Products {
   [product: string]: Array<Product>;
@@ -10,7 +10,7 @@ interface Products {
 export default function Products({ productsData }: Products) {
   return (
     <>
-      <ProductGrid productsData={productsData} />
+      <ProductsGrid productsData={productsData} />
     </>
   );
 }
@@ -26,36 +26,3 @@ export const getStaticProps = () => {
     },
   };
 };
-
-const Products = () => {
-  return (
-    <div className="columns is-mobile is-multiline">
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        1
-      </div>
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        2
-      </div>
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        3
-      </div>
-      <div
-        className="column"
-        style={{ minWidth: 300, minHeight: 300, background: 'grey' }}
-      >
-        4
-      </div>
-    </div>
-  );
-};
-
-export default Products;

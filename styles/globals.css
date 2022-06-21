@@ -36,3 +36,7 @@ footer {
   --star-color: #fff;
   --star-background: #fc0;
 }
+
+.text-sm {
+  font-size: 12px;
+}
