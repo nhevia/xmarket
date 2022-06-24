@@ -1,9 +1,16 @@
 import React from 'react';
 import s from './CartAdd.module.css';
 
-const CartAdd = () => {
+interface AppProps {
+  style?: { [key: string]: string | number };
+}
+
+const CartAdd = ({ style }: AppProps) => {
   return (
-    <button className={`button is-dark ${s['product-cart_button']}`}>
+    <button
+      className={`button is-dark ${s['product-cart_button']}`}
+      style={style}
+    >
       Add to cart
     </button>
   );
