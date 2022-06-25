@@ -7,7 +7,7 @@ export interface Product {
   thumbnail: string;
   image: string;
   rating: { rate: number; count: number };
-  stock: boolean;
+  stock?: boolean;
 }
 
 export interface PropsWithChildren {

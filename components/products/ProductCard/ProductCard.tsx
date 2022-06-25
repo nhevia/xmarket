@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from 'types/app';
 import s from './ProductCard.module.css';
+import Rating from '@components/ui/Rating';
 
 interface AppProps {
   product: Product;
@@ -24,11 +25,7 @@ const ProductCard = ({ product }: AppProps) => {
         </div>
         <div className={s['product-description']}>
           <p className={s['product-description-title']}>{product.title}</p>
-          <div
-            className={s['rating-stars']}
-            style={{ '--rating': product.rating.rate } as React.CSSProperties}
-            aria-label={`Rating of this product is ${product.rating.rate} out of 5.`}
-          />
+          <Rating rating={product.rating.rate} />
           <span className={`text-sm ${s['rating-count']}`}>
             ({product.rating.count})
           </span>
