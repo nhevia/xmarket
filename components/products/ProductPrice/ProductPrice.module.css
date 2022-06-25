@@ -1,0 +1,30 @@
+.product-price-container {
+  display: flex;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline;
+}
+
+.product-price-discount {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline;
+}
+
+.product-price-discount-original {
+  text-decoration: line-through;
+  display: inline;
+  margin-left: 10px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.produce-price-discount-desc {
+  font-size: 12px;
+  margin-left: 20px;
+  color: rgb(37, 134, 53);
+}

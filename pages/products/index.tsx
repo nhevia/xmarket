@@ -3,11 +3,11 @@ import fs from 'fs';
 import { ProductsGrid } from '@components/products';
 import { Product } from 'types/app';
 
-interface Products {
-  [product: string]: Array<Product>;
+interface AppProps {
+  productsData: Array<Product>;
 }
 
-export default function Products({ productsData }: Products) {
+export default function Products({ productsData }: AppProps) {
   return (
     <>
       <ProductsGrid productsData={productsData} />
