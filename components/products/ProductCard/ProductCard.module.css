@@ -19,6 +19,7 @@
 .product-image {
   display: flex;
 }
+
 .product-description {
   background-color: rgba(0, 0, 0, 0.01);
   padding: 5px 10px;
