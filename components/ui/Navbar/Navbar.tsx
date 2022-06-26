@@ -1,50 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import s from './Navbar.module.css';
 
 const Navbar = () => {
-  const router = useRouter();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hasItems, setHasItems] = useState(false); // TODO cart.items will come from global state
+
+  const controlNavBar = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > 1) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', controlNavBar);
+    return () => window.removeEventListener('scroll', controlNavBar);
+  }, []);
+
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          <Link href="/">
-            <a className="navbar-item">Home</a>
+    <div className={`${s.root} ${isScrolled && s['is-scrolled']}`}>
+      <nav role="navigation" aria-label="main navigation">
+        <div className={s['nav-start']}>
+          <Link href="./">
+            <img
+              className={`${s['nav-item']} ${s['nav-item-logo']} `}
+              src="/favicon.ico"
+              alt="site icon"
+            />
           </Link>
-
-          <div
-            className="navbar-item has-dropdown is-hoverable"
-            key={router.pathname}
-          >
-            <a className="navbar-link">Outfit</a>
-
-            <div className="navbar-dropdown">
-              <Link href="/products">
-                <a className="navbar-item">T-shirts</a>
-              </Link>
-              <Link href="/">
-                <a className="navbar-item">Pants</a>
-              </Link>
-              <a className="navbar-item">Sweatshirts</a>
-              <a className="navbar-item">Shoes</a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">New Arrivals</a>
-            </div>
-          </div>
+          <Link href="/products">
+            <a className={s['nav-item']}>Apparel</a>
+          </Link>
+          <Link href="/show-all">
+            <a className={s['nav-item']}>Show all</a>
+          </Link>
         </div>
 
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <a className="button is-primary">
-                <strong>Cart</strong>
-              </a>
-              <a className="button is-light">Log in</a>
-            </div>
+        {/* TODO create search component */}
+        <input
+          placeholder="Search for products"
+          style={{
+            minWidth: '400px',
+            border: '1px solid rgba(0,0,0,0.1)',
+            padding: '8px',
+            fontSize: '16px',
+            letterSpacing: '1px',
+            flex: '1 1',
+          }}
+        />
+
+        <div className={s['nav-end']}>
+          <div className={s['nav-item-cart']}>
+            <Link href="/cart">
+              <img
+                src="assets/icons/cart.svg"
+                alt="go to the shopping cart"
+                className={s['nav-item']}
+              />
+            </Link>
+            <div className={hasItems ? s['nav-item-cart-has-items'] : ''}></div>
           </div>
+          <Link href="/login">
+            <div className={`${s['nav-item']} ${s['nav-item-avatar']} `}></div>
+          </Link>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 
