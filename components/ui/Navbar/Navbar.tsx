@@ -65,7 +65,10 @@ const Navbar = () => {
             <div className={hasItems ? s['nav-item-cart-has-items'] : ''}></div>
           </div>
           <Link href="/login">
-            <div className={`${s['nav-item']} ${s['nav-item-avatar']} `}></div>
+            <div
+              aria-label="login"
+              className={`${s['nav-item']} ${s['nav-item-avatar']}`}
+            ></div>
           </Link>
         </div>
       </nav>
