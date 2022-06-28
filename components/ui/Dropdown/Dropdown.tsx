@@ -9,12 +9,14 @@ interface AppProps {
 const Dropdown = ({ options, label }: AppProps) => {
   return (
     <div className={s['dropdown-container']}>
-      {label && <p className={s['dropdown-label']}>{label}</p>}
+      {label && <label className={s['dropdown-label']}>{label}</label>}
       <div className={s['dropdown-select-container']}>
         <select className={s['dropdown-select']}>
           <option value="selected">Select an option</option>
           {options.map((option) => (
-            <option key={option}>{option}</option>
+            <option value={option} key={option}>
+              {option}
+            </option>
           ))}
         </select>
       </div>
