@@ -7,7 +7,7 @@ const Layout = (props: PropsWithChildren) => {
   return (
     <>
       <Navbar />
-      <main>{props.children}</main>
+      <main data-testid="layout-main">{props.children}</main>
       <Footer />
     </>
   );
