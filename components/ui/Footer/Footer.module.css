@@ -1,0 +1,8 @@
+.footer {
+  background-color: rgb(250, 250, 250);
+  padding: 3rem 1.5rem 6rem;
+}
+
+.footer-text-centered {
+  text-align: center;
+}
