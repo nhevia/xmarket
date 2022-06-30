@@ -15,6 +15,7 @@ describe('ProductCard', () => {
       image:
         'https://i.etsystatic.com/5774162/r/il/df182d/368098407/il_794xN.368098407_dm1y.jpg',
       rating: { rate: 3.8, count: 120 },
+      seller: 'Michael',
       stock: true,
     };
 

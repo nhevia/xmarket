@@ -15,6 +15,7 @@ describe('ProductsDetails', () => {
       image:
         'https://i.etsystatic.com/7292566/r/il/db8d93/890684944/il_794xN.890684944_embg.jpg',
       rating: { rate: 4.8, count: 500 },
+      seller: 'Michael',
       stock: true,
     };
 

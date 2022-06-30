@@ -6,6 +6,7 @@
   flex-basis: 18%;
   max-width: 18%;
   min-width: 160px;
+  overflow: hidden;
 }
 
 .product-container p {
@@ -18,6 +19,7 @@
 
 .product-image {
   display: flex;
+  transition: all linear 0.2s;
 }
 
 .product-description {
@@ -42,14 +44,10 @@
 }
 
 .product-image:hover {
-  opacity: 0.8;
   transition: all linear 0.2s;
+  transform: scale(1.05);
 }
 
 .product-image img {
   border-radius: 6px;
-}
-
-.asdasd {
-  color: red;
 }

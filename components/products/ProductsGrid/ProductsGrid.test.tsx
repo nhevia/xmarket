@@ -16,6 +16,7 @@ describe('ProductGrid', () => {
         image:
           'https://i.etsystatic.com/5774162/r/il/df182d/368098407/il_794xN.368098407_dm1y.jpg',
         rating: { rate: 3.8, count: 120 },
+        seller: 'Michael',
         stock: true,
       },
       {
@@ -30,6 +31,7 @@ describe('ProductGrid', () => {
         image:
           'https://i.etsystatic.com/10236127/r/il/086424/1158578733/il_794xN.1158578733_mzta.jpg',
         rating: { rate: 4.3, count: 259 },
+        seller: 'John',
         stock: true,
       },
     ];
