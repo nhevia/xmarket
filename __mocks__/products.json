@@ -8,6 +8,7 @@
     "thumbnail": "https://i.etsystatic.com/5774162/r/il/df182d/368098407/il_340x270.368098407_dm1y.jpg",
     "image": "https://i.etsystatic.com/5774162/r/il/df182d/368098407/il_794xN.368098407_dm1y.jpg",
     "rating": { "rate": 3.8, "count": 120 },
+    "seller": "Shoeble",
     "stock": true
   },
   {
@@ -19,6 +20,7 @@
     "thumbnail": "https://i.etsystatic.com/10236127/r/il/3d1f04/1159992733/il_340x270.1159992733_38ga.jpg",
     "image": "https://i.etsystatic.com/10236127/r/il/086424/1158578733/il_794xN.1158578733_mzta.jpg",
     "rating": { "rate": 4.3, "count": 259 },
+    "seller": "Skoosh",
     "stock": true
   },
   {
@@ -30,6 +32,7 @@
     "thumbnail": "https://i.etsystatic.com/7292566/r/il/db8d93/890684944/il_340x270.890684944_embg.jpg",
     "image": "https://i.etsystatic.com/7292566/r/il/db8d93/890684944/il_794xN.890684944_embg.jpg",
     "rating": { "rate": 4.8, "count": 500 },
+    "seller": "Footz",
     "stock": true
   },
   {
@@ -41,6 +44,7 @@
     "thumbnail": "https://i.etsystatic.com/13074965/c/2000/1589/0/418/il/8cfc67/2605159551/il_340x270.2605159551_elx7.jpg",
     "image": "https://i.etsystatic.com/13074965/r/il/8cfc67/2605159551/il_794xN.2605159551_elx7.jpg",
     "rating": { "rate": 3.5, "count": 430 },
+    "seller": "TenderFash",
     "stock": true
   },
   {
@@ -52,6 +56,7 @@
     "thumbnail": "https://i.etsystatic.com/5358616/c/3000/2384/0/538/il/f52326/2624487406/il_340x270.2624487406_h4pk.jpg",
     "image": "https://i.etsystatic.com/5358616/r/il/f52326/2624487406/il_794xN.2624487406_h4pk.jpg",
     "rating": { "rate": 4.6, "count": 400 },
+    "seller": "GraftBags",
     "stock": true
   },
   {
@@ -63,6 +68,7 @@
     "thumbnail": "https://i.etsystatic.com/10998335/c/2380/1890/235/326/il/6b0af1/2959645843/il_340x270.2959645843_5jcd.jpg",
     "image": "https://i.etsystatic.com/10998335/r/il/6b0af1/2959645843/il_794xN.2959645843_5jcd.jpg",
     "rating": { "rate": 4.8, "count": 70 },
+    "seller": "GraftBags",
     "stock": true
   },
   {
@@ -85,6 +91,7 @@
     "thumbnail": "https://i.etsystatic.com/9003196/c/800/635/0/282/il/322250/1621537626/il_340x270.1621537626_c5lb.jpg",
     "image": "https://i.etsystatic.com/9003196/r/il/322250/1621537626/il_794xN.1621537626_c5lb.jpg",
     "rating": { "rate": 2.8, "count": 100 },
+    "seller": "Teespring",
     "stock": true
   },
   {
@@ -95,6 +102,7 @@
     "category": "shirts",
     "thumbnail": "https://i.etsystatic.com/9116133/r/il/9e64e1/2694750128/il_340x270.2694750128_3xs8.jpg",
     "image": "https://i.etsystatic.com/9116133/r/il/9e64e1/2694750128/il_794xN.2694750128_3xs8.jpg",
+    "seller": "Teespring",
     "rating": { "rate": 4.7, "count": 203 }
   }
 ]

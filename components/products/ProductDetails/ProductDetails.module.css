@@ -9,7 +9,7 @@
   margin-right: 15px;
   display: flex;
   position: relative;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -36,5 +36,24 @@
   letter-spacing: 0.5px;
   font-weight: 200;
   white-space: pre-wrap;
-  margin-bottom: 5px;
+}
+
+.product-description-shipping {
+  font-size: 14px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-description-stock {
+  display: flex;
+  font-size: 14px;
+}
+
+.product-description-seller {
+  margin-top: 10px;
+}
+
+.rating-count {
+  vertical-align: text-bottom;
 }

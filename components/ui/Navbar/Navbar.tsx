@@ -57,7 +57,7 @@ const Navbar = () => {
           <div className={s['nav-item-cart']}>
             <Link href="/cart">
               <img
-                src="assets/icons/cart.svg"
+                src="/assets/icons/cart.svg"
                 alt="go to the shopping cart"
                 className={s['nav-item']}
               />
