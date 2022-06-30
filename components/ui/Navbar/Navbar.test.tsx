@@ -12,10 +12,6 @@ describe('Navbar', () => {
       'href',
       '/products'
     );
-    expect(screen.getByRole('link', { name: 'Show all' })).toHaveAttribute(
-      'href',
-      '/show-all'
-    );
     screen.getByRole('textbox');
     screen.getByAltText('go to the shopping cart');
     screen.getByLabelText('login');

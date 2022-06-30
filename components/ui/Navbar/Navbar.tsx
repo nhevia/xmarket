@@ -35,9 +35,6 @@ const Navbar = () => {
           <Link href="/products">
             <a className={s['nav-item']}>Apparel</a>
           </Link>
-          <Link href="/show-all">
-            <a className={s['nav-item']}>Show all</a>
-          </Link>
         </div>
 
         {/* TODO create search component */}
