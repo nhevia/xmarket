@@ -25,10 +25,7 @@ const ProductCard = ({ product }: AppProps) => {
         </div>
         <div className={s['product-description']}>
           <p className={s['product-description-title']}>{product.title}</p>
-          <Rating rating={product.rating.rate} />
-          <span className={`text-sm ${s['rating-count']}`}>
-            ({product.rating.count})
-          </span>
+          <Rating rating={product.rating} />
           <p>${product.price.toFixed(2)}</p>
         </div>
       </a>
