@@ -1,7 +1,24 @@
-.product-cart_button {
+.product_cart-button {
   width: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
   border-radius: 15px;
   font-weight: 600;
-  margin-top: auto;
-  margin-bottom: 50px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+
+.product_cart-button:hover {
+  background-color: rgb(80, 80, 80);
+  border-color: white;
+}
+
+.product_cart-button:active {
+  background-color: rgb(80, 80, 80);
+  border-color: blue;
 }

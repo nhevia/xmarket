@@ -8,7 +8,7 @@ interface AppProps {
 const CartAdd = ({ style }: AppProps) => {
   return (
     <button
-      className={`button is-dark ${s['product-cart_button']}`}
+      className={`button is-dark ${s['product_cart-button']}`}
       style={style}
     >
       Add to cart
