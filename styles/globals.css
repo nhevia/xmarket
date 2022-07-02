@@ -40,6 +40,7 @@ footer {
   --star-size: 18px;
   --star-color: #fff;
   --star-background: #fc0;
+  --button-shadow-hover: 3px 3px 5px 1px rgba(220, 220, 220, 0.8);
 }
 
 .text-sm {
