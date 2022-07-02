@@ -1,0 +1,31 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.login * {
+  margin: 10px 0px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.row label {
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  color: rgb(100, 100, 100);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

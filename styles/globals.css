@@ -36,6 +36,24 @@ footer {
   margin-top: auto;
 }
 
+button {
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid rgb(200, 200, 200);
+  cursor: pointer;
+  transition: all 0.15s linear;
+  box-shadow: 1px 1px 15px 1px rgb(235, 235, 235);
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+button.no-shadow {
+  box-shadow: none;
+}
+
 :root {
   --star-size: 18px;
   --star-color: #fff;
