@@ -1,19 +1,19 @@
 .root {
-  position: relative;
+  position: fixed;
+  width: calc(100vw - 15px);
+  top: 0px;
+  z-index: 30;
 }
 
 .root nav {
-  z-index: 30;
-  min-height: 3.25rem;
   max-height: 3.25rem;
+  min-height: 74px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  min-height: 74px;
-  position: fixed;
-  width: 100%;
   background-color: white;
   box-shadow: 0px;
   transition: box-shadow 0.2s ease-out;
