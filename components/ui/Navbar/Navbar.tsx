@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import s from './Navbar.module.css';
 import Login from '@components/auth/Login';
+import Sider from '@components/ui/Sider';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hasItems, setHasItems] = useState(false); // TODO cart.items will come from global state
   const [showModal, setShowModal] = useState(false);
+  const [showSider, setShowSider] = useState(false);
 
   const controlNavBar = () => {
     if (typeof window !== 'undefined') {
@@ -26,6 +28,7 @@ const Navbar = () => {
   return (
     <>
       {showModal && <Login setVisible={setShowModal} />}
+      {showSider && <Sider setVisible={setShowSider} />}
       <div className={`${s.root} ${isScrolled && s['is-scrolled']}`}>
         <nav role="navigation" aria-label="main navigation">
           <div className={s['nav-start']}>
@@ -55,14 +58,16 @@ const Navbar = () => {
           />
 
           <div className={s['nav-end']}>
-            <div className={s['nav-item-cart']}>
-              <Link href="/cart">
-                <img
-                  src="/assets/icons/cart.svg"
-                  alt="go to the shopping cart"
-                  className={s['nav-item']}
-                />
-              </Link>
+            <div
+              className={s['nav-item-cart']}
+              onClick={() => setShowSider(true)}
+            >
+              <img
+                src="/assets/icons/cart.svg"
+                alt="go to the shopping cart"
+                className={s['nav-item']}
+              />
+
               <div
                 className={hasItems ? s['nav-item-cart-has-items'] : ''}
               ></div>

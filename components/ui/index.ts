@@ -4,3 +4,4 @@ export { default as Dropdown } from './Dropdown';
 export { default as Rating } from './Rating';
 export { default as Tooltip } from './Tooltip';
 export { default as Modal } from './Modal';
+export { default as Sider } from './Sider';

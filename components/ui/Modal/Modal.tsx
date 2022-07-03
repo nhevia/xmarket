@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import s from './Modal.module.css';
 
 interface AppProps {
@@ -18,16 +18,15 @@ const Modal = ({
   footer,
   closable = true,
 }: AppProps) => {
-  const closeModal = (e: MouseEvent) => {
-    e.stopPropagation();
+  const onClose = () => {
     setVisible(false);
   };
 
   return (
-    <div className={s.container} onClick={(e) => closeModal(e)}>
+    <div className={s.root} onClick={() => onClose()}>
       <div className={s.modal} onClick={(e) => e.stopPropagation()}>
         {closable && (
-          <div className={s.close} onClick={(e) => closeModal(e)}>
+          <div className={s.close} onClick={() => onClose()}>
             <span className={s['close-button']} aria-label="close popup window">
               X
             </span>
