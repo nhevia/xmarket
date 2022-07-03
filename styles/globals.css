@@ -29,7 +29,7 @@ p {
 
 main {
   flex: 1;
-  padding: 100px 100px;
+  padding: 40px 100px 100px 100px;
 }
 
 footer {
@@ -63,4 +63,10 @@ button.no-shadow {
 
 .text-sm {
   font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  main {
+    padding: 20px 10px;
+  }
 }

@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       {showModal && <Login setVisible={setShowModal} />}
-      {showSider && <Sider setVisible={setShowSider} />}
+      {showSider && <Sider setVisible={setShowSider}>Cart</Sider>}
       <div className={`${s.root} ${isScrolled && s['is-scrolled']}`}>
         <nav role="navigation" aria-label="main navigation">
           <div className={s['nav-start']}>
@@ -47,14 +47,7 @@ const Navbar = () => {
           {/* TODO create search component */}
           <input
             placeholder="Search for products"
-            style={{
-              minWidth: '400px',
-              border: '1px solid rgba(0,0,0,0.1)',
-              padding: '8px',
-              fontSize: '16px',
-              letterSpacing: '1px',
-              flex: '1 1',
-            }}
+            className={s['search-migrate']}
           />
 
           <div className={s['nav-end']}>

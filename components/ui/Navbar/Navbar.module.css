@@ -1,5 +1,5 @@
 .root {
-  position: fixed;
+  position: sticky;
   width: calc(100vw - 15px);
   top: 0px;
   z-index: 30;
@@ -101,4 +101,23 @@
   text-align: center;
   font-size: 12px;
   color: white;
+}
+
+.search-migrate {
+  min-width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  flex: 1 1;
+}
+
+@media (max-width: 900px) {
+  .root {
+    width: 100%;
+  }
+
+  .search-migrate {
+    display: none;
+  }
 }

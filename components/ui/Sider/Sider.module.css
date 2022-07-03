@@ -4,7 +4,7 @@
   width: 100vw;
   z-index: 31;
   backdrop-filter: blur(0.8px);
-  background-color: #00000033;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .sider {
@@ -14,4 +14,10 @@
   right: 0px;
   top: 0px;
   background-color: white;
+}
+
+@media (max-width: 800px) {
+  .sider {
+    min-width: 100%;
+  }
 }

@@ -1,8 +1,10 @@
 .root {
   z-index: 1000;
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
@@ -13,7 +15,7 @@
 .modal {
   z-index: 1000;
   width: 400px;
-  height: 500px;
+  height: 400px;
   background-color: white;
   display: flex;
   flex-direction: column;
