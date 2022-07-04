@@ -1,28 +1,33 @@
 import React from 'react';
-import fs from 'fs';
+import { useQuery, dehydrate, QueryClient } from 'react-query';
 import { ProductsGrid } from '@components/products';
 import { Product } from 'types/app';
 
-interface AppProps {
-  productsData: Array<Product>;
-}
-
-export default function Products({ productsData }: AppProps) {
+export default function Products() {
+  const { data } = useQuery('products', getProducts, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
   return (
     <>
-      <ProductsGrid productsData={productsData} />
+      <ProductsGrid productsData={data} />
     </>
   );
 }
 
-export const getStaticProps = () => {
-  const productsData = JSON.parse(
-    fs.readFileSync('__mocks__/products.json').toString()
-  );
+const getProducts = async (): Promise<Product[]> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_S3}/products.json`);
+  return response.json();
+};
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery('products', getProducts);
 
   return {
     props: {
-      productsData,
+      dehydratedState: dehydrate(queryClient),
     },
   };
-};
+}

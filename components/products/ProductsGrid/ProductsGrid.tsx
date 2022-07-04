@@ -4,7 +4,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import s from './ProductsGrid.module.css';
 
 interface AppProducts {
-  productsData: Array<Product>;
+  productsData: Array<Product> | undefined;
 }
 
 const ProductsGrid = ({ productsData }: AppProducts) => {
