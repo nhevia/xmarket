@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCartStore } from 'store/cart';
 import { Product } from 'types/app';
+import { Dots } from '@components/ui/Loaders';
 import s from './CartAdd.module.css';
 
 interface AppProps {
@@ -18,16 +19,17 @@ const CartAdd = ({ product, style }: AppProps) => {
     setIsButtonLoading(true);
     setTimeout(() => {
       setIsButtonLoading(false);
-    }, 100);
+    }, 300);
   };
 
   return (
     <button
       onClick={addToCart}
-      className={`button is-dark ${s['product_cart-button']}`}
+      className={s['product_cart-button']}
       style={style}
+      disabled={isButtonLoading}
     >
-      {isButtonLoading ? '...' : 'Add to cart'}
+      {isButtonLoading ? <Dots /> : 'Add to cart'}
     </button>
   );
 };

@@ -1,5 +1,7 @@
 .product_cart-button {
   width: 100%;
+  height: 40px;
+  max-height: 40px;
   margin-top: 30px;
   margin-bottom: 50px;
   border-radius: 15px;
