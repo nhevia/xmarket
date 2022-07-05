@@ -11,6 +11,10 @@ export interface Product {
   stock?: boolean;
 }
 
+export interface ProductCart extends Product {
+  cartId: string;
+}
+
 export interface PropsWithChildren {
   children: React.ReactNode;
 }
