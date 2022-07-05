@@ -23,7 +23,6 @@ const ProductDetails = ({ product }: AppProps) => {
     <div>
       <div className={s['product-container']}>
         <div className={s['product-image-container']}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt="product image"
             src={product.image}
@@ -67,7 +66,7 @@ const ProductDetails = ({ product }: AppProps) => {
           <div className={s['product-description-seller']}>
             Sold by <Tooltip text={product.seller} />
           </div>
-          <CartAdd />
+          <CartAdd product={product} />
           {/* add carousel (same img is ok?) + related products */}
         </div>
       </div>
