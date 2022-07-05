@@ -3,7 +3,7 @@ import s from './Sider.module.css';
 
 interface AppProps {
   setVisible: (visible: boolean) => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Sider = ({ setVisible, children }: AppProps) => {
