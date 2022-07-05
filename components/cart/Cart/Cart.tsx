@@ -2,6 +2,7 @@ import React from 'react';
 import Sider from '@components/ui/Sider';
 import { useCartStore } from 'store/cart';
 import { ProductCart } from 'types/app';
+import s from './Cart.module.css';
 
 interface AppProps {
   setVisible: (visible: boolean) => void;
@@ -13,22 +14,35 @@ const Cart = ({ setVisible }: AppProps) => {
 
   return (
     <Sider setVisible={setVisible}>
-      {products?.map((product: ProductCart) => (
-        <div key={product.cartId} style={{ padding: '20px' }}>
-          <p>{product.title}</p>
-          <button onClick={() => removeProduct(product.cartId)}>Remove</button>
+      <div className={s.products}>
+        {products?.map((product: ProductCart) => (
+          <div key={product.cartId} className={s.product}>
+            <p>{product.title}</p>
+            <button onClick={() => removeProduct(product.cartId)}>
+              Remove
+            </button>
+          </div>
+        ))}
+      </div>
+      <div className={s.footer}>
+        <div className={s.labels}>
+          <div className={s.label}>
+            <p>subtotal </p>
+            <p className={s.bold}>
+              ${products.reduce((prev, curr) => prev + curr.price, 0)}
+            </p>
+          </div>
+          <div className={s.label}>
+            <p>shipping </p>
+            <p className={s.bold}>FREE</p>
+          </div>
+          <div className={s.label}>
+            <p>total </p>
+            <p className={s.bold}>
+              ${products.reduce((prev, curr) => prev + curr.price, 0)}
+            </p>
+          </div>
         </div>
-      ))}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '0px',
-          padding: '20px',
-          marginBottom: '30px',
-          display: 'flex',
-        }}
-      >
-        <p>Total ${products.reduce((prev, curr) => prev + curr.price, 0)}</p>
         <button>Proceed to checkout</button>
       </div>
     </Sider>
