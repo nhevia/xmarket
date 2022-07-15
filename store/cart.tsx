@@ -3,9 +3,12 @@ import { devtools, persist } from 'zustand/middleware';
 import { Product, ProductCart } from 'types/app';
 
 interface CartStore {
+  total: number;
+  quantity: number;
   products: ProductCart[];
   addProduct: (product: Product) => void;
-  removeProduct: (id: string) => void;
+  removeProduct: (product: ProductCart) => void;
+  clearCart: () => void;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -13,9 +16,13 @@ export const useCartStore = create<CartStore>()(
     persist(
       (set) => ({
         products: [],
+        total: 0,
+        quantity: 0,
         addProduct: (product) => {
           set(
             (state) => ({
+              quantity: state.quantity + 1,
+              total: state.total + product.price,
               products: [
                 ...state.products,
                 {
@@ -30,14 +37,25 @@ export const useCartStore = create<CartStore>()(
             'addProduct'
           );
         },
-      removeProduct: (id) => {
+        removeProduct: (product) => {
           set(
             (state) => ({
-            products: state.products.filter((p) => p.cartId !== id),
+              quantity: state.quantity - 1,
+              total: state.total - product.price,
+              products: state.products.filter(
+                (p) => p.cartId !== product.cartId
+              ),
             }),
             false,
             'removeProduct'
           );
+        },
+        clearCart: () => {
+          set(() => ({
+            products: [],
+            total: 0,
+            quantity: 0,
+          }));
         },
       }),
       {
