@@ -1,6 +1,6 @@
 .root {
   position: fixed;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   z-index: 31;
   backdrop-filter: blur(0.8px);
@@ -9,10 +9,12 @@
 }
 
 .sider {
-  min-height: 100vh;
+  min-height: 100%;
   min-width: 500px;
   max-width: 500px;
   position: absolute;
+  display: flex;
+  flex-direction: column;
   right: 0px;
   top: 0px;
   background-color: white;

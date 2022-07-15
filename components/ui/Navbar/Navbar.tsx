@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCartStore } from 'store/cart';
+import useIsMounted from 'hooks/useIsMounted';
 import Login from '@components/auth/Login';
 import Cart from '@components/cart/Cart';
 import s from './Navbar.module.css';
@@ -10,7 +11,8 @@ const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
-  const productsQ = useCartStore((state) => state.products.length);
+  const hasHydrated = useIsMounted();
+  const quantity = useCartStore((state) => state.quantity);
 
   const controlNavBar = () => {
     if (typeof window !== 'undefined') {
@@ -64,9 +66,13 @@ const Navbar = () => {
               />
 
               <div
-                className={productsQ > 0 ? s['nav-item-cart-has-items'] : ''}
+                className={
+                  hasHydrated && quantity > 0
+                    ? s['nav-item-cart-has-items']
+                    : ''
+                }
               >
-                {productsQ > 0 && productsQ}
+                {hasHydrated ? quantity > 0 && quantity : ''}
               </div>
             </div>
             <div
