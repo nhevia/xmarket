@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Sider from '@components/ui/Sider';
 import { useCartStore } from 'store/cart';
 import { ProductCart } from 'types/app';
@@ -9,18 +10,42 @@ interface AppProps {
 }
 
 const Cart = ({ setVisible }: AppProps) => {
-  const products = useCartStore((state) => state.products);
-  const removeProduct = useCartStore((state) => state.removeProduct);
+  const {
+    products,
+    total,
+    addProduct,
+    subtractProduct,
+    removeProduct,
+    clearCart,
+  } = useCartStore((state) => state);
 
   return (
     <Sider setVisible={setVisible}>
       <div className={s.products}>
         {products?.map((product: ProductCart) => (
-          <div key={product.cartId} className={s.product}>
-            <p>{product.title}</p>
-            <button onClick={() => removeProduct(product.cartId)}>
-              Remove
-            </button>
+          <div key={product.id} className={s.product}>
+            <div
+              style={{
+                display: 'flex',
+                alignContent: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <button
+                className={s.remove}
+                onClick={() => removeProduct(product)}
+              >
+                X
+              </button>
+              <p className={s.name}>{product.title}</p>
+            </div>
+            <div className={s.actions}>
+              <p className={s['quantity-text']}>x{product.count}</p>
+              <div className={s['quantity-buttons']}>
+                <button onClick={() => subtractProduct(product)}>-</button>
+                <button onClick={() => addProduct(product)}>+</button>
+              </div>
+            </div>
           </div>
         ))}
       </div>
@@ -28,9 +53,7 @@ const Cart = ({ setVisible }: AppProps) => {
         <div className={s.labels}>
           <div className={s.label}>
             <p>subtotal </p>
-            <p className={s.bold}>
-              ${products.reduce((prev, curr) => prev + curr.price, 0)}
-            </p>
+            <p className={s.bold}>${total.toFixed(2)}</p>
           </div>
           <div className={s.label}>
             <p>shipping </p>
@@ -38,12 +61,15 @@ const Cart = ({ setVisible }: AppProps) => {
           </div>
           <div className={s.label}>
             <p>total </p>
-            <p className={s.bold}>
-              ${products.reduce((prev, curr) => prev + curr.price, 0)}
-            </p>
+            <p className={s.bold}>${total.toFixed(2)}</p>
           </div>
         </div>
-        <button>Proceed to checkout</button>
+        <div className={s.actions}>
+          <Link href="/checkout">
+            <button className={s.checkout}>Proceed to checkout</button>
+          </Link>
+          {/* <button onClick={clearCart}>Clear cart</button> */}
+        </div>
       </div>
     </Sider>
   );
