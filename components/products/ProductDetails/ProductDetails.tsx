@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product } from 'types/app';
+import { ProductCart } from 'types/app';
 import ProductPrice from '@components/products/ProductPrice';
 import CartAdd from '@components/cart/CartAdd';
 import Dropdown from '@components/ui/Dropdown';
@@ -15,7 +15,7 @@ const createDropdowns = (category: string) => {
 };
 
 interface AppProps {
-  product: Product;
+  product: ProductCart;
 }
 
 const ProductDetails = ({ product }: AppProps) => {

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useCartStore } from 'store/cart';
-import { Product } from 'types/app';
+import { ProductCart } from 'types/app';
 import { Dots } from '@components/ui/Loaders';
 import s from './CartAdd.module.css';
 
 interface AppProps {
-  product: Product;
+  product: ProductCart;
   style?: { [key: string]: string | number };
 }
 

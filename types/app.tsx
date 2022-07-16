@@ -12,7 +12,7 @@ export interface Product {
 }
 
 export interface ProductCart extends Product {
-  cartId: string;
+  count: number;
 }
 
 export interface PropsWithChildren {
