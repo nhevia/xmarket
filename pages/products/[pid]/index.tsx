@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useQueryClient, QueryClient, dehydrate } from 'react-query';
 
-import { Product } from 'types/app';
+import { ProductCart } from 'types/app';
 import ProductDetails from '@components/products/ProductDetails';
 
 const Product = () => {
-  const [product, setProduct] = useState<Product>();
+  const [product, setProduct] = useState<ProductCart>();
 
   const router = useRouter();
   const { pid } = router.query;
 
   const queryCachedClient = useQueryClient();
-  const products: Product[] | undefined =
+  const products: ProductCart[] | undefined =
     queryCachedClient.getQueryData('products');
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Product = () => {
   return <>{product && <ProductDetails product={product} />}</>;
 };
 
-const getProducts = async (): Promise<Product[]> => {
+const getProducts = async (): Promise<ProductCart[]> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_S3}/products.json`);
   return response.json();
 };

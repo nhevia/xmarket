@@ -11,6 +11,10 @@ export interface Product {
   stock?: boolean;
 }
 
+export interface ProductCart extends Product {
+  count: number;
+}
+
 export interface PropsWithChildren {
   children: React.ReactNode;
 }

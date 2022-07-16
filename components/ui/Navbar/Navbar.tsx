@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import s from './Navbar.module.css';
+import { useCartStore } from 'store/cart';
+import useIsMounted from 'hooks/useIsMounted';
 import Login from '@components/auth/Login';
 import Cart from '@components/cart/Cart';
+import s from './Navbar.module.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hasItems, setHasItems] = useState(false); // TODO cart.items will come from global state
   const [showModal, setShowModal] = useState(false);
   const [showCart, setShowCart] = useState(false);
+
+  const hasHydrated = useIsMounted();
+  const quantity = useCartStore((state) => state.quantity);
 
   const controlNavBar = () => {
     if (typeof window !== 'undefined') {
@@ -62,8 +66,14 @@ const Navbar = () => {
               />
 
               <div
-                className={hasItems ? s['nav-item-cart-has-items'] : ''}
-              ></div>
+                className={
+                  hasHydrated && quantity > 0
+                    ? s['nav-item-cart-has-items']
+                    : ''
+                }
+              >
+                {hasHydrated ? quantity > 0 && quantity : ''}
+              </div>
             </div>
             <div
               aria-label="login"
