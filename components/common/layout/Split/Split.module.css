@@ -1,0 +1,58 @@
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+}
+
+.left {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.left > div {
+  padding: 100px 0px;
+  width: 80%;
+  margin: auto;
+}
+
+.right {
+  width: 50%;
+  background-color: rgb(246, 248, 249);
+  box-shadow: -1px 3px 9px 1px lightgrey;
+}
+
+.right > div {
+  margin: 100px auto;
+  width: 60%;
+}
+
+@media (max-width: 1200px) {
+  .root {
+    flex-direction: column-reverse;
+  }
+
+  .left {
+    width: 100%;
+    flex: 1;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .left > div {
+    padding: 30px 0px;
+  }
+
+  .right > div {
+    margin: 50px auto;
+  }
+}
