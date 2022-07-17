@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../../ui/Navbar';
-import Footer from '../../ui/Footer';
+import Navbar from 'components/ui/Navbar';
+import Footer from 'components/ui/Footer';
 import { PropsWithChildren } from 'types/app';
 
 const Layout = (props: PropsWithChildren) => {

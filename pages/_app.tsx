@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import Layout from '@components/common/Layout';
+import Layout from '@components/common/layout/Layout';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
 
