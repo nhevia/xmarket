@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import Split from '@components/common/layout/Split';
 import CheckoutForm from '@components/checkoutForm';
-import { useCartStore } from 'store/cart';
+import CartProducts from 'components/cart/CartProducts';
 
 const stripePromise = loadStripe(
   `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
@@ -10,8 +11,6 @@ const stripePromise = loadStripe(
 
 export default function Checkout() {
   const [clientSecret, setClientSecret] = useState('');
-
-  const { products, quantity, total } = useCartStore((state) => state);
 
   useEffect(() => {
     fetch('/api/create_intent')
@@ -21,30 +20,25 @@ export default function Checkout() {
 
   return (
     <>
-      {clientSecret ? (
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          <Elements
-            stripe={stripePromise}
-            options={{
-              clientSecret: clientSecret,
-              appearance: { theme: 'stripe', labels: 'floating' },
-            }}
-          >
-            <CheckoutForm />
-          </Elements>
+      <Split>
+        <CartProducts />
+
+        {clientSecret ? (
           <div>
-            Cart list ({quantity})
-            {products?.map((p) => (
-              <li key={p.title} style={{ margin: '10px 0px' }}>
-                {p.title} x{p.count} = ${(p.count * p.price).toFixed(2)}
-              </li>
-            ))}
-            Total: ${total}
+            <Elements
+              stripe={stripePromise}
+              options={{
+                clientSecret: clientSecret,
+                appearance: { theme: 'stripe' },
+              }}
+            >
+              <CheckoutForm />
+            </Elements>
           </div>
-        </div>
-      ) : (
-        <div>...</div>
-      )}
+        ) : (
+          <div></div>
+        )}
+      </Split>
     </>
   );
 }
