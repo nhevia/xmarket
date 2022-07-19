@@ -1,1 +1,1 @@
-export { default as Dots } from './Spinner';
+export { default as Dots } from './Dots';
