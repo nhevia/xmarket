@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Split from '@components/common/layout/Split';
 import CheckoutForm from '@components/checkout/CheckoutForm';
-import CartProducts from '@components/cart/CartSummary';
+const CartProducts = dynamic(() => import('@components/cart/CartSummary'), {
+  ssr: false,
+});
 
 const stripePromise = loadStripe(
   `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
