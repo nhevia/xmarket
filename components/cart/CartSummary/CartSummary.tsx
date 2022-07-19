@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCartStore } from 'store/cart';
-import s from './CartProducts.module.css';
+import s from './CartSummary.module.css';
 
 const CartProducts = () => {
   const { products, quantity, total } = useCartStore((state) => state);

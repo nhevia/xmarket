@@ -60,4 +60,14 @@
     margin: auto;
     margin-bottom: 20px;
   }
+  .product img {
+    max-width: 100px;
+  }
+  .product .name {
+    font-size: 14px;
+  }
+  .product .price {
+    flex-basis: 50px;
+    font-size: 14px;
+  }
 }

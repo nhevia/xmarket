@@ -1,5 +1,7 @@
 .root {
   max-width: 600px;
+  min-width: 400px;
+  min-height: 300px;
   margin: auto;
   display: flex;
   flex-direction: column;

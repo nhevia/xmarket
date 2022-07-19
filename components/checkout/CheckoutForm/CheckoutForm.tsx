@@ -4,9 +4,11 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
+import Dots from '@components/ui/Loaders/Dots';
 import s from './CheckoutForm.module.css';
 
 const CheckoutForm = () => {
+  const [didPayElementLoaded, setDidPayElementLoaded] = useState(false);
   const [isFormComplete, setIsFormComplete] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -16,11 +18,8 @@ const CheckoutForm = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    if (isFormComplete) {
-      console.log('form complete and validated');
-    } else {
+    if (!isFormComplete) {
       setIsError(true);
-      console.log('form not completed');
     }
   };
 
@@ -31,11 +30,31 @@ const CheckoutForm = () => {
 
   return (
     <form className={s.root} onSubmit={handleSubmit}>
-      <PaymentElement onChange={onChange} />
+      {!didPayElementLoaded && (
+        <div
+          style={{
+            position: 'relative',
+            minHeight: '300px',
+            minWidth: '400px',
+          }}
+        >
+          <div style={{ position: 'absolute', top: '50%', width: '100%' }}>
+            <Dots color={'rgb(0, 116, 212)'} />
+          </div>
+        </div>
+      )}
 
-      <button type="submit" disabled={!stripe || !elements}>
-        Pay
-      </button>
+      <PaymentElement
+        onChange={onChange}
+        onReady={() => setDidPayElementLoaded(true)}
+      />
+
+      {didPayElementLoaded && (
+        <button type="submit" disabled={!stripe || !elements}>
+          Pay
+        </button>
+      )}
+
       {isError && (
         <span style={{ color: 'red', fontSize: '0.8em', textAlign: 'center' }}>
           Please fullfill all the required fields
