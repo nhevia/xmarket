@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Split from '@components/common/layout/Split';
-import CheckoutForm from '@components/checkoutForm';
-import CartProducts from 'components/cart/CartProducts';
+import CheckoutForm from '@components/checkout/CheckoutForm';
+import CartProducts from '@components/cart/CartSummary';
 
 const stripePromise = loadStripe(
   `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
