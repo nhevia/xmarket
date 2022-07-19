@@ -37,6 +37,7 @@
 @media (max-width: 1200px) {
   .root {
     flex-direction: column-reverse;
+    margin: 0px;
   }
 
   .left {
@@ -50,9 +51,13 @@
 
   .left > div {
     padding: 30px 0px;
+    width: 95%;
+    margin: 10px;
   }
 
   .right > div {
-    margin: 50px auto;
+    margin: 0px;
+    width: 100%;
+    min-height: 340px;
   }
 }
