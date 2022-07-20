@@ -1,0 +1,24 @@
+.root {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.root button {
+  margin: 20px auto;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgb(0, 116, 212);
+  color: white;
+  box-shadow: none;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 0.9em;
+}
+
+.root button:hover {
+  background-color: rgb(0, 116, 235);
+}
