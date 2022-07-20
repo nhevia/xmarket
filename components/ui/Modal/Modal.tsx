@@ -8,6 +8,7 @@ interface AppProps {
   content: React.ReactNode;
   footer?: React.ReactNode;
   closable?: boolean;
+  onCloseHandler?: () => void;
 }
 
 const Modal = ({
@@ -17,9 +18,11 @@ const Modal = ({
   content,
   footer,
   closable = true,
+  onCloseHandler,
 }: AppProps) => {
   const onClose = () => {
     setVisible(false);
+    onCloseHandler && onCloseHandler();
   };
 
   return (
