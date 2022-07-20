@@ -32,7 +32,7 @@ export default function Checkout() {
               stripe={stripePromise}
               options={{
                 clientSecret: clientSecret,
-                appearance: { theme: 'stripe' },
+                appearance: { theme: 'stripe', labels: 'floating' },
               }}
             >
               <CheckoutForm />
