@@ -1,10 +1,10 @@
-.spinner {
+.dots {
   margin: 0px auto 0;
   width: 70px;
   text-align: center;
 }
 
-.spinner > div {
+.dots > div {
   width: 9px;
   height: 9px;
   background-color: white;
@@ -15,12 +15,12 @@
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
-.spinner .bounce1 {
+.dots .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
-.spinner .bounce2 {
+.dots .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }

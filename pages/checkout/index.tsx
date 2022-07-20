@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Split from '@components/common/layout/Split';
-import CheckoutForm from '@components/checkoutForm';
-import CartProducts from 'components/cart/CartProducts';
+import CheckoutForm from '@components/checkout/CheckoutForm';
+const CartSummary = dynamic(() => import('@components/cart/CartSummary'), {
+  ssr: false,
+});
 
 const stripePromise = loadStripe(
   `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
@@ -21,7 +24,7 @@ export default function Checkout() {
   return (
     <>
       <Split>
-        <CartProducts />
+        <CartSummary />
 
         {clientSecret ? (
           <div>
@@ -29,7 +32,7 @@ export default function Checkout() {
               stripe={stripePromise}
               options={{
                 clientSecret: clientSecret,
-                appearance: { theme: 'stripe' },
+                appearance: { theme: 'stripe', labels: 'floating' },
               }}
             >
               <CheckoutForm />

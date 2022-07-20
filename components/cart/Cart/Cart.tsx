@@ -22,6 +22,9 @@ const Cart = ({ setVisible }: AppProps) => {
   return (
     <Sider setVisible={setVisible}>
       <div className={s.products}>
+        <p className={s.close} onClick={() => setVisible(false)}>
+          {'Back to store'}
+        </p>
         {products?.map((product: ProductCart) => (
           <div key={product.id} className={s.product}>
             <div
@@ -66,9 +69,14 @@ const Cart = ({ setVisible }: AppProps) => {
         </div>
         <div className={s.actions}>
           <Link href="/checkout">
-            <button className={s.checkout}>Proceed to checkout</button>
+            <button
+              onClick={() => setVisible(false)}
+              className={s.checkout}
+              disabled={total === 0}
+            >
+              Proceed to checkout
+            </button>
           </Link>
-          {/* <button onClick={clearCart}>Clear cart</button> */}
         </div>
       </div>
     </Sider>
