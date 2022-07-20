@@ -75,6 +75,12 @@
   border-color: blue;
 }
 
+.footer .actions .checkout:disabled {
+  background-color: rgb(80, 80, 80);
+  border-color: white;
+  cursor: not-allowed;
+}
+
 .labels {
   margin: 20px 0px;
 }
