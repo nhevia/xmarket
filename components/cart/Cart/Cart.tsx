@@ -22,6 +22,9 @@ const Cart = ({ setVisible }: AppProps) => {
   return (
     <Sider setVisible={setVisible}>
       <div className={s.products}>
+        <p className={s.close} onClick={() => setVisible(false)}>
+          {'Back to store'}
+        </p>
         {products?.map((product: ProductCart) => (
           <div key={product.id} className={s.product}>
             <div

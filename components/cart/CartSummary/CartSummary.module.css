@@ -18,11 +18,16 @@
 }
 
 .total {
-  margin: 0px 0px 30px 3em;
+  margin: 0px auto 0px auto;
   font-weight: 400;
-  margin: auto;
-  margin-bottom: 40px;
   font-size: 0.9em;
+}
+
+.back {
+  font-size: 14px;
+  margin: 0px auto 20px auto;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  padding: 3px;
 }
 
 .product {
@@ -58,7 +63,6 @@
   }
   .total {
     margin: auto;
-    margin-bottom: 20px;
   }
   .product img {
     max-width: 100px;

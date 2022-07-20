@@ -58,7 +58,7 @@
   vertical-align: text-bottom;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .product-container {
     flex-direction: column;
     justify-content: center;
@@ -66,6 +66,7 @@
   }
 
   .product-description-container {
-    width: 100%;
+    width: 95%;
+    margin-top: 20px;
   }
 }

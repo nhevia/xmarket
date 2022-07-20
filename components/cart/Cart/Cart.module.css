@@ -113,3 +113,22 @@
 .quantity-text {
   font-size: 15px;
 }
+
+.close {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  border-bottom-width: 50%;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  padding: 3px;
+  visibility: hidden;
+}
+
+@media (max-width: 800px) {
+  .close {
+    visibility: visible;
+  }
+}

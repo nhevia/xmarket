@@ -4,7 +4,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Split from '@components/common/layout/Split';
 import CheckoutForm from '@components/checkout/CheckoutForm';
-const CartProducts = dynamic(() => import('@components/cart/CartSummary'), {
+const CartSummary = dynamic(() => import('@components/cart/CartSummary'), {
   ssr: false,
 });
 
@@ -24,7 +24,7 @@ export default function Checkout() {
   return (
     <>
       <Split>
-        <CartProducts />
+        <CartSummary />
 
         {clientSecret ? (
           <div>
