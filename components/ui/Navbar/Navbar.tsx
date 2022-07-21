@@ -4,6 +4,7 @@ import { useCartStore } from 'store/cart';
 import useIsMounted from 'hooks/useIsMounted';
 import Login from '@components/auth/Login';
 import Cart from '@components/cart/Cart';
+import ProductSearch from '@components/products/ProductSearch';
 import s from './Navbar.module.css';
 
 const Navbar = () => {
@@ -48,11 +49,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* TODO create search component */}
-          <input
-            placeholder="Search for products"
-            className={s['search-migrate']}
-          />
+          <ProductSearch />
 
           <div className={s['nav-end']}>
             <div

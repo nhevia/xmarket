@@ -54,7 +54,7 @@ const CheckoutForm = () => {
               }}
             >
               <p style={{ textAlign: 'center', fontSize: '1.5em' }}>
-                Order completed <p className={s.confetti}>🎉</p>
+                Order completed <span className={s.confetti}>🎉</span>
               </p>
               <span style={{ fontStyle: 'italic' }}>
                 Estimated arrival:{' '}

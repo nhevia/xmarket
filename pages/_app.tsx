@@ -9,14 +9,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
-    <Layout>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <Layout>
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </Layout>
+      </Layout>
+    </QueryClientProvider>
   );
 }
 
