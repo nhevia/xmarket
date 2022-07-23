@@ -49,7 +49,9 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <ProductSearch />
+          <div className={s['nav-center']}>
+            <ProductSearch />
+          </div>
 
           <div className={s['nav-end']}>
             <div

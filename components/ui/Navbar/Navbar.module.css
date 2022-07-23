@@ -1,12 +1,11 @@
 .root {
   position: sticky;
-  width: calc(100vw - 15px);
+  width: 100%;
   top: 0px;
   z-index: 30;
 }
 
 .root nav {
-  max-height: 3.25rem;
   min-height: 74px;
   width: 100%;
   display: flex;
@@ -107,12 +106,31 @@
   pointer-events: none;
 }
 
-@media (max-width: 900px) {
-  .root {
-    width: 100%;
+@media (max-width: 800px) {
+  .root nav {
+    flex-wrap: wrap;
   }
 
-  .search-migrate {
-    display: none;
+  .nav-center {
+    flex-basis: 400px;
+    order: 3;
+    margin: auto;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .root nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-start,
+  .nav-end {
+    margin: 0px;
+  }
+
+  .nav-center {
+    width: 100%;
+    margin-top: 10px;
   }
 }

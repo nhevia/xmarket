@@ -56,3 +56,14 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+@media (max-width: 500px) {
+  .root {
+    width: 100%;
+  }
+
+  .input {
+    min-width: 0px;
+    flex: 1;
+  }
+}
