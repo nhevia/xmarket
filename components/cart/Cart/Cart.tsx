@@ -10,18 +10,13 @@ interface AppProps {
 }
 
 const Cart = ({ setVisible }: AppProps) => {
-  const {
-    products,
-    total,
-    addProduct,
-    subtractProduct,
-    removeProduct,
-    clearCart,
-  } = useCartStore((state) => state);
+  const { products, total, addProduct, subtractProduct } = useCartStore(
+    (state) => state
+  );
 
   return (
     <Sider setVisible={setVisible}>
-      <div className={s.products}>
+      <div className={s.root}>
         <p className={s.close} onClick={() => setVisible(false)}>
           {'Back to store'}
         </p>
@@ -34,12 +29,7 @@ const Cart = ({ setVisible }: AppProps) => {
                 justifyContent: 'center',
               }}
             >
-              <button
-                className={s.remove}
-                onClick={() => removeProduct(product)}
-              >
-                X
-              </button>
+              <img src={product.thumbnail} alt={product.title} />
               <p className={s.name}>{product.title}</p>
             </div>
             <div className={s.actions}>

@@ -28,6 +28,13 @@
   margin: 0px auto 20px auto;
   border-bottom: 1px solid rgb(200, 200, 200);
   padding: 3px;
+  cursor: pointer;
+}
+
+.back:hover {
+  background-color: black;
+  color: white;
+  transition: all 0.15s linear;
 }
 
 .product {
