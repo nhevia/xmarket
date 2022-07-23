@@ -25,7 +25,7 @@ const ProductsGrid = ({ productsData }: AppProducts) => {
             ))}
         </div>
       ) : (
-        <div style={{ marginTop: '25%' }}>
+        <div style={{ marginTop: '15%' }}>
           <Dots color="black" />
         </div>
       )}
