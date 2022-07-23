@@ -11,7 +11,7 @@ export const useFilterStore = create<FilterStore>((set) => ({
   filter: '',
   isFiltering: false,
   setFilter: (filter: string) => {
-    set((state) => ({ ...state, filter: filter }));
+    set((state) => ({ ...state, filter: filter.toLowerCase() }));
   },
   setIsFiltering: (flag: boolean) => {
     set((state) => ({ ...state, isFiltering: flag }));
