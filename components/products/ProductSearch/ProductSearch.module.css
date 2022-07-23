@@ -1,12 +1,58 @@
 .root {
+  display: flex;
+}
+
+.root:focus-within .search {
+  background-color: black;
+  transition: all 0.3s ease-out;
+  box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 10%);
+}
+.root:focus-within .input {
+  box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 10%);
+  transition: all 0.3s ease-out;
+}
+.root:focus-within .icon {
+  fill: white;
+}
+.input:focus-visible {
+  outline: none;
+}
+
+.input {
   min-width: 400px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
   padding: 8px;
   font-size: 16px;
   letter-spacing: 1px;
-  flex: 1 1;
 }
 
-.root:focus-visible {
-  outline: 1px solid rgba(0, 0, 0, 0.1);
+.search {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 42px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.search:hover {
+  box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 10%);
+  background-color: black;
+  transition: all 0.5s ease-out;
+}
+.search:hover .icon {
+  fill: white;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
