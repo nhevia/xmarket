@@ -65,6 +65,14 @@ button.no-shadow {
   font-size: 12px;
 }
 
+@media (max-width: 1555px) and (min-width: 1500px) {
+  /* TODO workaround for layout shift due to empty scrollbar and resizes */
+  html,
+  body {
+    overflow-y: hidden;
+  }
+}
+
 @media (max-width: 800px) {
   main {
     padding: 20px 10px;
