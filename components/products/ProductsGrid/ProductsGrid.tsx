@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFilterStore } from 'store/filters';
-
 import ProductCard from '../ProductCard/ProductCard';
+import Dots from '@components/ui/Loaders/Dots';
 import { Product } from 'types/app';
 import s from './ProductsGrid.module.css';
 
@@ -10,18 +10,26 @@ interface AppProducts {
 }
 
 const ProductsGrid = ({ productsData }: AppProducts) => {
-  const filter = useFilterStore((state) => state.filter);
+  const { filter, isFiltering } = useFilterStore((state) => state);
 
   return (
-    <div className={s.grid}>
-      {productsData
-        ?.filter((p) => p.title.toLowerCase().includes(filter))
-        .map((product: Product) => (
-          <React.Fragment key={product.id}>
-            <ProductCard product={product} />
-          </React.Fragment>
-        ))}
-    </div>
+    <>
+      {!isFiltering ? (
+        <div className={s.grid}>
+          {productsData
+            ?.filter((p) => p.title.toLowerCase().includes(filter))
+            .map((product: Product) => (
+              <React.Fragment key={product.id}>
+                <ProductCard product={product} />
+              </React.Fragment>
+            ))}
+        </div>
+      ) : (
+        <div style={{ marginTop: '25%' }}>
+          <Dots color="black" />
+        </div>
+      )}
+    </>
   );
 };
 

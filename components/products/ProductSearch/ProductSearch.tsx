@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import s from './ProductSearch.module.css';
+import { debounce } from 'throttle-debounce';
 import { useFilterStore } from 'store/filters';
+import s from './ProductSearch.module.css';
 
 const ProductSearch = () => {
   const [filterWord, setFilterWord] = useState('');
 
-  const setFilter = useFilterStore((state) => state.setFilter);
+  const { setFilter, setIsFiltering } = useFilterStore((state) => state);
+
+  const searchText = (text: string) => {
+    setFilter(text);
+    setIsFiltering(false);
+  };
+  const searchTextDebounce = debounce(1000, searchText);
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterWord(e.target.value);
@@ -13,12 +20,20 @@ const ProductSearch = () => {
 
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      setFilter(filterWord);
+      setIsFiltering(true);
+      setTimeout(() => {
+        setIsFiltering(false);
+      }, 1001);
+      searchTextDebounce(filterWord);
     }
   };
 
   const onSearchHandle = () => {
-    setFilter(filterWord);
+    setIsFiltering(true);
+    setTimeout(() => {
+      setIsFiltering(false);
+    }, 1001);
+    searchTextDebounce(filterWord);
   };
 
   return (
