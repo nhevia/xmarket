@@ -2,6 +2,13 @@
   position: sticky;
   top: 0px;
   z-index: 30;
+  width: calc(100vw - 15px);
+}
+
+@media (hover: none) {
+  .root {
+    width: 100%;
+  }
 }
 
 .root nav {
@@ -72,7 +79,7 @@
   border-color: transparent;
 }
 
-.nav-item-avatar {
+.nav-item-avatar-default {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -81,6 +88,15 @@
     rgb(18, 125, 248),
     rgb(209, 12, 12) 100%
   );
+  cursor: pointer;
+}
+
+.nav-item-avatar-logged {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-image: url('https://styles.redditmedia.com/t5_5jg8ii/styles/profileIcon_eu4fq51le9i81.jpg?width=256&height=256&crop=256:256,smart&s=6eb5f8a5af206779debdd113e366704e7bf57361');
+  background-size: contain;
   cursor: pointer;
 }
 
