@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCartStore } from 'store/cart';
+import { useAuthStore } from 'store/auth';
 import useIsMounted from 'hooks/useIsMounted';
 import Login from '@components/auth/Login';
 import Cart from '@components/cart/Cart';
@@ -14,6 +15,7 @@ const Navbar = () => {
 
   const hasHydrated = useIsMounted();
   const quantity = useCartStore((state) => state.quantity);
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   const controlNavBar = () => {
     if (typeof window !== 'undefined') {
@@ -29,6 +31,10 @@ const Navbar = () => {
     window.addEventListener('scroll', controlNavBar);
     return () => window.removeEventListener('scroll', controlNavBar);
   }, []);
+
+  const handleClickAvatar = () => {
+    !isLoggedIn && setShowModal(true);
+  };
 
   return (
     <>
@@ -76,8 +82,12 @@ const Navbar = () => {
             </div>
             <div
               aria-label="login"
-              onClick={() => setShowModal(true)}
-              className={`${s['nav-item']} ${s['nav-item-avatar']}`}
+              onClick={handleClickAvatar}
+              className={`${s['nav-item']} ${
+                !isLoggedIn
+                  ? s['nav-item-avatar-default']
+                  : s['nav-item-avatar-logged']
+              }`}
             ></div>
           </div>
         </nav>
