@@ -47,6 +47,18 @@
   }
 }
 
+@media (max-width: 750px) {
+  .top {
+    min-height: 300px;
+  }
+}
+
+@media (max-height: 550px) {
+  .top {
+    max-height: 250px;
+  }
+}
+
 @keyframes expandHeight {
   0% {
     height: 0px;
