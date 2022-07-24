@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Sider from '@components/ui/Sider';
+import Drawer from '@components/ui/Drawer';
 import { useCartStore } from 'store/cart';
 import { ProductCart } from 'types/app';
 import s from './Cart.module.css';
@@ -15,7 +15,7 @@ const Cart = ({ setVisible }: AppProps) => {
   );
 
   return (
-    <Sider setVisible={setVisible}>
+    <Drawer setVisible={setVisible} position="right">
       <div className={s.root}>
         <p className={s.close} onClick={() => setVisible(false)}>
           {'Back to store'}
@@ -69,7 +69,7 @@ const Cart = ({ setVisible }: AppProps) => {
           </Link>
         </div>
       </div>
-    </Sider>
+    </Drawer>
   );
 };
 

@@ -1,0 +1,160 @@
+.root {
+  padding: 30px;
+  display: flex;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.image {
+  display: block;
+  flex-direction: column;
+  width: 85px;
+}
+
+.image img {
+  width: 100%;
+}
+
+.title {
+  display: block;
+  flex-direction: column;
+  width: 300px;
+  margin-left: 15px;
+}
+
+.title .big {
+  font-size: 1.2em;
+}
+
+.price {
+  display: block;
+  flex-direction: column;
+  width: 95px;
+  margin-left: 15px;
+}
+
+.quantity {
+  display: block;
+  flex-direction: column;
+  width: 70px;
+  margin-left: 15px;
+}
+
+.total {
+  display: block;
+  flex-direction: column;
+  width: 70px;
+  margin-left: 15px;
+}
+
+.subtotal {
+  display: block;
+  flex-direction: column;
+  flex: 1;
+  text-align: right;
+  margin-right: 15px;
+  margin-bottom: 200px;
+}
+
+.column-title {
+  margin: 0 -15px 15px 0;
+  padding: 0 0 12px;
+  border-bottom: 1px solid #e2e2e2;
+  flex: 1;
+}
+
+.actions {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.actions button {
+  padding: 10px 25px;
+  font-size: 1.2em;
+}
+
+.keep {
+  font-weight: 400;
+}
+
+.keep:hover {
+  background-color: black;
+  color: white;
+}
+
+.cart {
+  margin-left: 20px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+}
+
+.cart:hover {
+  background-color: goldenrod;
+}
+
+@media (max-width: 900px) {
+  .title {
+    width: 200px;
+  }
+}
+
+@media (max-width: 750px) {
+  .title {
+    width: 200px;
+  }
+
+  .total,
+  .subtotal,
+  .column-title {
+    display: none;
+  }
+
+  .image > div {
+    display: block;
+    position: absolute;
+    width: 100%;
+    border-bottom: 100%;
+    padding-bottom: 1px;
+    top: 20px;
+    right: 15px;
+    text-align: center;
+  }
+
+  .quantity::before {
+    content: 'x';
+  }
+
+  .root {
+    margin: auto;
+    padding: 0px 0px 100px 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .actions {
+    width: 100%;
+    right: 0px;
+  }
+
+  .actions button {
+    width: 45%;
+    white-space: pre;
+  }
+}
+
+@media (max-width: 450px) {
+  .actions button {
+    padding: 11px 0px;
+  }
+}
+
+@media (max-height: 550px) {
+  /* .root {
+    margin: auto;
+    padding: 0px 0px 50px 0px;
+  } */
+}

@@ -71,7 +71,13 @@ const CheckoutForm = () => {
             router.push('/');
           }}
           footer={
-            <button className={s.backbutton} onClick={() => router.push('/')}>
+            <button
+              className={s.backbutton}
+              onClick={() => {
+                clearCart();
+                router.push('/');
+              }}
+            >
               Back to store
             </button>
           }
