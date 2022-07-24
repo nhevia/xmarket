@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { Product } from 'types/app';
 import s from './ProductAdded.module.css';
@@ -41,7 +42,9 @@ const ProductAdded = ({ product, setVisible }: AppProps) => {
         <button className={s.keep} onClick={() => setVisible(false)}>
           Keep shopping
         </button>
-        <button className={s.cart}>Cart</button>
+        <Link href="/checkout">
+          <button className={s.cart}>Checkout</button>
+        </Link>
       </div>
     </div>
   );
