@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import Sider from './Sider';
+import Drawer from './Drawer';
 
-describe('Sider', () => {
-  it('renders a sider with some content', () => {
+describe('Drawer', () => {
+  it('renders a drawer with some content', () => {
     const setVisible = jest.fn();
     render(
-      <Sider setVisible={setVisible}>
+      <Drawer setVisible={setVisible}>
         <p>Some content</p>
-      </Sider>
+      </Drawer>
     );
 
     expect(screen.queryByText('Some content')).toBeInTheDocument();
