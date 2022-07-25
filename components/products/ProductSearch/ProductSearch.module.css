@@ -57,6 +57,24 @@
   margin-bottom: 5px;
 }
 
+@media (max-width: 800px) {
+  .root {
+    width: 100%;
+    padding: 0px 20px;
+  }
+
+  .input {
+    flex: 1;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .search {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}
+
 @media (max-width: 500px) {
   .root {
     width: 100%;

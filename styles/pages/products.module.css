@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  flex-direction: row;
+}
+
+.categories {
+  flex-basis: 150px;
+}
+
+.products {
+  flex: 1;
+}
+
+@media (max-width: 800px) {
+  .root {
+    flex-direction: column;
+  }
+
+  .categories {
+    flex-basis: 80px;
+  }
+}
