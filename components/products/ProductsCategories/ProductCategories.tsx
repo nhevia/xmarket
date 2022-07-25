@@ -26,30 +26,11 @@ const ProductCategories = () => {
         </div>
       ) : (
         <>
-          <p
-            style={{
-              fontSize: '1em',
-              fontWeight: '500',
-              marginBottom: '15px',
-            }}
-          >
-            Categories
-          </p>
+          <p className={s.title}>Categories</p>
 
           {Object.keys(categoriesConfiguration).map((cat) => (
             <Link key={cat} href={`/products?search=${cat}`}>
-              <p
-                style={{
-                  fontSize: '0.9em',
-                  fontWeight: '400',
-                  color: 'rgb(100,100,100)',
-                  marginBottom: '20px',
-                  textTransform: 'capitalize',
-                  cursor: 'pointer',
-                }}
-              >
-                {cat}
-              </p>
+              <p className={s.category}>{cat}</p>
             </Link>
           ))}
         </>
