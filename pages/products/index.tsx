@@ -1,7 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 import { useQuery, dehydrate, QueryClient } from 'react-query';
 import { ProductsGrid } from '@components/products';
 import { Product } from 'types/app';
+import { categoriesConfiguration } from '__mocks__/categories';
 
 export default function Products() {
   const { data } = useQuery('products', getProducts, {
@@ -9,9 +11,32 @@ export default function Products() {
     refetchOnWindowFocus: false,
   });
   return (
-    <>
-      <ProductsGrid productsData={data} />
-    </>
+    <div style={{ display: 'flex' }}>
+      <div style={{ flexBasis: '150px' }}>
+        <p style={{ fontSize: '1em', fontWeight: '500', marginBottom: '15px' }}>
+          Categories
+        </p>
+        {Object.keys(categoriesConfiguration).map((cat) => (
+          <Link key={cat} href={`/products?search=${cat}`}>
+            <p
+              style={{
+                fontSize: '0.9em',
+                fontWeight: '400',
+                color: 'rgb(100,100,100)',
+                marginBottom: '20px',
+                textTransform: 'capitalize',
+                cursor: 'pointer',
+              }}
+            >
+              {cat}
+            </p>
+          </Link>
+        ))}
+      </div>
+      <div style={{ flex: 1 }}>
+        <ProductsGrid productsData={data} />
+      </div>
+    </div>
   );
 }
 
