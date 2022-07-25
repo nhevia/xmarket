@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { useFilterStore } from 'store/filters';
 import ProductCard from '../ProductCard/ProductCard';
 import Dots from '@components/ui/Loaders/Dots';
@@ -12,15 +13,28 @@ interface AppProducts {
 const ProductsGrid = ({ productsData }: AppProducts) => {
   const [products, setProducts] = useState<React.ReactNode>([]);
 
-  const { filter, isFiltering } = useFilterStore((state) => state);
+  const { isFiltering } = useFilterStore((state) => state);
+  const router = useRouter();
 
   useEffect(() => {
     if (!productsData) return;
 
+    const search = router.query.search as string;
+    if (search === undefined) {
+      setProducts(
+        productsData.map((product: Product) => (
+          <React.Fragment key={product.id}>
+            <ProductCard product={product} />
+          </React.Fragment>
+        ))
+      );
+      return;
+    }
+
     const filtered = productsData?.filter(
       (p) =>
-        p.title.toLowerCase().includes(filter) ||
-        p.category.toLowerCase().includes(filter)
+        p.title.toLowerCase().includes(search) ||
+        p.category.toLowerCase().includes(search)
     );
 
     if (filtered?.length > 0) {
@@ -43,7 +57,7 @@ const ProductsGrid = ({ productsData }: AppProducts) => {
         </>
       );
     }
-  }, [filter]);
+  }, [router]);
 
   return (
     <>
