@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { debounce } from 'throttle-debounce';
 import { useFilterStore } from 'store/filters';
 import s from './ProductSearch.module.css';
@@ -6,13 +7,16 @@ import s from './ProductSearch.module.css';
 const ProductSearch = () => {
   const [filterWord, setFilterWord] = useState('');
 
-  const { setFilter, setIsFiltering } = useFilterStore((state) => state);
+  const router = useRouter();
+  const { setIsFiltering } = useFilterStore((state) => state);
 
   const searchText = (text: string) => {
-    setFilter(text);
-    setIsFiltering(false);
+    router.push(`/products?search=${text}`);
+    setTimeout(() => {
+      setIsFiltering(false);
+    }, 500);
   };
-  const searchTextDebounce = debounce(1000, searchText);
+  const searchTextDebounce = debounce(500, searchText);
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterWord(e.target.value);
@@ -21,18 +25,12 @@ const ProductSearch = () => {
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       setIsFiltering(true);
-      setTimeout(() => {
-        setIsFiltering(false);
-      }, 1001);
       searchTextDebounce(filterWord);
     }
   };
 
   const onSearchHandle = () => {
     setIsFiltering(true);
-    setTimeout(() => {
-      setIsFiltering(false);
-    }, 1001);
     searchTextDebounce(filterWord);
   };
 

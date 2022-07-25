@@ -1,7 +1,16 @@
 import React from 'react';
+import Head from 'next/head';
 import { useQuery, dehydrate, QueryClient } from 'react-query';
-import { ProductsGrid } from '@components/products';
+import ProductsGrid from '@components/products/ProductsGrid';
+import dynamic from 'next/dynamic';
+const ProductsCategories = dynamic(
+  () => import('@components/products/ProductsCategories'),
+  {
+    ssr: false,
+  }
+);
 import { Product } from 'types/app';
+import s from 'styles/pages/products.module.css';
 
 export default function Products() {
   const { data } = useQuery('products', getProducts, {
@@ -9,9 +18,17 @@ export default function Products() {
     refetchOnWindowFocus: false,
   });
   return (
-    <>
-      <ProductsGrid productsData={data} />
-    </>
+    <div className={s.root}>
+      <Head>
+        <title>Browse Appareal - xMarket</title>
+      </Head>
+      <div className={s.categories}>
+        <ProductsCategories />
+      </div>
+      <div className={s.products}>
+        <ProductsGrid productsData={data} />
+      </div>
+    </div>
   );
 }
 

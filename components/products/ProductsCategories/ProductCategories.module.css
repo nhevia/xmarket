@@ -1,0 +1,40 @@
+.root {
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.root select {
+  width: 100%;
+  padding: 0px 20px;
+  margin: auto;
+}
+
+.root * div::after {
+  right: 0;
+}
+
+.title {
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.category {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: rgb(100, 100, 100);
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.category:hover {
+  background-color: black;
+  color: white;
+}
+
+.category:focus {
+  background-color: grey;
+}

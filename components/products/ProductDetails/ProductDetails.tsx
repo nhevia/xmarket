@@ -41,7 +41,12 @@ const ProductDetails = ({ product }: AppProps) => {
           </p>
 
           {Object.entries(createDropdowns(product.category)).map((el) => (
-            <Dropdown key={el[0]} label={el[0]} options={el[1]} />
+            <Dropdown
+              key={el[0]}
+              label={el[0]}
+              options={el[1]}
+              optionHandler={() => ''}
+            />
           ))}
 
           <div

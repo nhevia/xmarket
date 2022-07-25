@@ -124,12 +124,13 @@
 @media (max-width: 800px) {
   .root nav {
     flex-wrap: wrap;
+    padding-bottom: 10px;
   }
 
   .nav-center {
     flex-basis: 400px;
     order: 3;
-    margin: auto;
+    flex: 1;
     margin-top: 10px;
   }
 }
