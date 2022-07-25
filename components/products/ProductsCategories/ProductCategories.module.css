@@ -1,0 +1,17 @@
+.root {
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.root select {
+  width: 100%;
+  padding: 0px 20px;
+  margin: auto;
+}
+
+.root * div::after {
+  right: 0;
+}
+
+.root option {
+}

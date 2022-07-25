@@ -1,10 +1,16 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import { useQuery, dehydrate, QueryClient } from 'react-query';
-import { ProductsGrid } from '@components/products';
+import ProductsGrid from '@components/products/ProductsGrid';
+import dynamic from 'next/dynamic';
+const ProductsCategories = dynamic(
+  () => import('@components/products/ProductsCategories'),
+  {
+    ssr: false,
+  }
+);
 import { Product } from 'types/app';
-import { categoriesConfiguration } from '__mocks__/categories';
+import s from 'styles/pages/products.module.css';
 
 export default function Products() {
   const { data } = useQuery('products', getProducts, {
@@ -12,32 +18,14 @@ export default function Products() {
     refetchOnWindowFocus: false,
   });
   return (
-    <div style={{ display: 'flex' }}>
+    <div className={s.root}>
       <Head>
         <title>Browse Appareal - xMarket</title>
       </Head>
-      <div style={{ flexBasis: '150px' }}>
-        <p style={{ fontSize: '1em', fontWeight: '500', marginBottom: '15px' }}>
-          Categories
-        </p>
-        {Object.keys(categoriesConfiguration).map((cat) => (
-          <Link key={cat} href={`/products?search=${cat}`}>
-            <p
-              style={{
-                fontSize: '0.9em',
-                fontWeight: '400',
-                color: 'rgb(100,100,100)',
-                marginBottom: '20px',
-                textTransform: 'capitalize',
-                cursor: 'pointer',
-              }}
-            >
-              {cat}
-            </p>
-          </Link>
-        ))}
+      <div className={s.categories}>
+        <ProductsCategories />
       </div>
-      <div style={{ flex: 1 }}>
+      <div className={s.products}>
         <ProductsGrid productsData={data} />
       </div>
     </div>
