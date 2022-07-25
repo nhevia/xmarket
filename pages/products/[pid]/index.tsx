@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useQueryClient, QueryClient, dehydrate } from 'react-query';
 
@@ -20,7 +21,14 @@ const Product = () => {
     if (queriedProduct) setProduct(queriedProduct);
   }, [pid]);
 
-  return <>{product && <ProductDetails product={product} />}</>;
+  return (
+    <>
+      <Head>
+        <title>{product?.title}</title>
+      </Head>
+      {product && <ProductDetails product={product} />}
+    </>
+  );
 };
 
 const getProducts = async (): Promise<ProductCart[]> => {

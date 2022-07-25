@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -23,6 +24,9 @@ export default function Checkout() {
 
   return (
     <>
+      <Head>
+        <title>Complete your order</title>
+      </Head>
       <Split>
         <CartSummary />
 

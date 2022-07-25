@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useQuery, dehydrate, QueryClient } from 'react-query';
 import { ProductsGrid } from '@components/products';
 import { Product } from 'types/app';
@@ -12,6 +13,9 @@ export default function Products() {
   });
   return (
     <div style={{ display: 'flex' }}>
+      <Head>
+        <title>Browse Appareal - xMarket</title>
+      </Head>
       <div style={{ flexBasis: '150px' }}>
         <p style={{ fontSize: '1em', fontWeight: '500', marginBottom: '15px' }}>
           Categories
