@@ -17,8 +17,10 @@ const ProductsGrid = ({ productsData }: AppProducts) => {
   useEffect(() => {
     if (!productsData) return;
 
-    const filtered = productsData?.filter((p) =>
-      p.title.toLowerCase().includes(filter)
+    const filtered = productsData?.filter(
+      (p) =>
+        p.title.toLowerCase().includes(filter) ||
+        p.category.toLowerCase().includes(filter)
     );
 
     if (filtered?.length > 0) {
