@@ -1,10 +1,10 @@
 import React from 'react';
 import { ProductCart } from 'types/app';
-import ProductPrice from '@components/products/ProductPrice';
-import CartAdd from '@components/cart/CartAdd';
-import Dropdown from '@components/ui/Dropdown';
-import Rating from '@components/ui/Rating';
-import Tooltip from '@components/ui/Tooltip';
+import { ProductPrice } from 'components/products';
+import CartAdd from 'components/cart/CartAdd';
+import Dropdown from 'components/ui/Dropdown';
+import Rating from 'components/ui/Rating';
+import Tooltip from 'components/ui/Tooltip';
 import s from './ProductDetails.module.css';
 import { categoriesConfiguration } from '__mocks__/categories';
 
@@ -72,7 +72,6 @@ const ProductDetails = ({ product }: AppProps) => {
             Sold by <Tooltip text={product.seller} />
           </div>
           <CartAdd product={product} />
-          {/* add carousel (same img is ok?) + related products */}
         </div>
       </div>
     </div>

@@ -3,9 +3,9 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import Split from '@components/common/layout/Split';
-import CheckoutForm from '@components/checkout/CheckoutForm';
-const CartSummary = dynamic(() => import('@components/cart/CartSummary'), {
+import Split from 'components/common/layout/Split';
+import CheckoutForm from 'components/checkout/CheckoutForm';
+const CartSummary = dynamic(() => import('components/cart/CartSummary'), {
   ssr: false,
 });
 

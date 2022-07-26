@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from 'types/app';
 import s from './ProductCard.module.css';
-import Rating from '@components/ui/Rating';
+import Rating from 'components/ui/Rating';
 
 interface AppProps {
   product: Product;

@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
-import ProductCategories from './ProductCategories';
+import ProductsCategories from './ProductsCategories';
 
 describe('ProductCategories', () => {
   it('renders', () => {
-    render(<ProductCategories />);
+    render(<ProductsCategories />);
   });
 });

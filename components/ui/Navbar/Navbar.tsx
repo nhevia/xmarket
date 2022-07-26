@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { useCartStore } from 'store/cart';
 import { useAuthStore } from 'store/auth';
 import useIsMounted from 'hooks/useIsMounted';
-import Login from '@components/auth/Login';
-import Cart from '@components/cart/Cart';
-import ProductSearch from '@components/products/ProductSearch';
+import Login from 'components/auth/Login';
+import Cart from 'components/cart/Cart';
+import ProductSearch from 'components/products/ProductSearch';
 import s from './Navbar.module.css';
 
 const Navbar = () => {

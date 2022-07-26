@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 import { useQuery, dehydrate, QueryClient } from 'react-query';
-import ProductsGrid from '@components/products/ProductsGrid';
+import { ProductsGrid } from 'components/products';
 import dynamic from 'next/dynamic';
 const ProductsCategories = dynamic(
-  () => import('@components/products/ProductsCategories'),
+  () => import('components/products/ProductsCategories'),
   {
     ssr: false,
   }

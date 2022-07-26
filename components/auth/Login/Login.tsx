@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import { useAuthStore } from 'store/auth';
-import Modal from '@components/ui/Modal';
+import Modal from 'components/ui/Modal';
 import s from './Login.module.css';
 
 interface AppProps {

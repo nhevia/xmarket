@@ -20,7 +20,7 @@ const customJestConfig = {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
   moduleNameMapper: {
-    '@components/(.*)': '<rootDir>/components/$1',
+    'components/(.*)': '<rootDir>/components/$1',
   },
 };
 

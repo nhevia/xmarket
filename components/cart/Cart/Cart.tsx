@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Drawer from '@components/ui/Drawer';
+import Drawer from 'components/ui/Drawer';
 import { useCartStore } from 'store/cart';
 import { ProductCart } from 'types/app';
 import s from './Cart.module.css';

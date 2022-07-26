@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Dropdown } from '@components/ui';
+import { Dropdown } from 'components/ui';
 import useMediaQuery from 'hooks/useMediaQuery';
-import s from './ProductCategories.module.css';
+import s from './ProductsCategories.module.css';
 import { categoriesConfiguration } from '__mocks__/categories';
 
-const ProductCategories = () => {
+const ProductsCategories = () => {
   const matches = useMediaQuery('(max-width: 800px)');
   const router = useRouter();
 
@@ -39,4 +39,4 @@ const ProductCategories = () => {
   );
 };
 
-export default ProductCategories;
+export default ProductsCategories;

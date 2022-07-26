@@ -6,8 +6,8 @@ import {
   useElements,
 } from '@stripe/react-stripe-js';
 import { useCartStore } from 'store/cart';
-import Dots from '@components/ui/Loaders/Dots';
-import { Modal } from '@components/ui';
+import Dots from 'components/ui/Loaders/Dots';
+import { Modal } from 'components/ui';
 import s from './CheckoutForm.module.css';
 
 const CheckoutForm = () => {

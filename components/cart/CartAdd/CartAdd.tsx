@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useCartStore } from 'store/cart';
-import { Dots } from '@components/ui/Loaders';
-import Drawer from '@components/ui/Drawer';
-import ProductAdded from '@components/products/ProductAdded';
+import { Dots } from 'components/ui/Loaders';
+import Drawer from 'components/ui/Drawer';
+import { ProductAdded } from 'components/products';
 import { ProductCart } from 'types/app';
 import s from './CartAdd.module.css';
 

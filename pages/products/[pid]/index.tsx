@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useQueryClient, QueryClient, dehydrate } from 'react-query';
 
 import { ProductCart } from 'types/app';
-import ProductDetails from '@components/products/ProductDetails';
+import { ProductDetail } from 'components/products';
 
 const Product = () => {
   const [product, setProduct] = useState<ProductCart>();
@@ -26,7 +26,7 @@ const Product = () => {
       <Head>
         <title>{product?.title}</title>
       </Head>
-      {product && <ProductDetails product={product} />}
+      {product && <ProductDetail product={product} />}
     </>
   );
 };

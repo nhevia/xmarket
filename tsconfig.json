@@ -20,10 +20,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "typeRoots": ["./node_modules/@types"],
-    "paths": {
-      "@components/*": ["components/*"],
-      "types/*": ["types/*"]
-    },
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
