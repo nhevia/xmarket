@@ -34,7 +34,7 @@ const ProductsGrid = ({ productsData }: AppProducts) => {
     const filtered = productsData?.filter(
       (p) =>
         p.title.toLowerCase().includes(search) ||
-        p.category.toLowerCase().includes(search)
+        p.category.toLowerCase() === search
     );
 
     if (filtered?.length > 0) {
