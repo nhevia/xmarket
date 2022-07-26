@@ -1,0 +1,27 @@
+.root {
+  margin-top: 5rem;
+}
+
+.title {
+  font-size: 1.4em;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.product {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.product img:hover {
+  transition: all linear 0.2s;
+  transform: scale(1.05);
+}

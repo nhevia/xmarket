@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useQueryClient, QueryClient, dehydrate } from 'react-query';
-
+import { ProductDetail, ProductsRelated } from 'components/products';
 import { ProductCart } from 'types/app';
-import { ProductDetail } from 'components/products';
 
 const Product = () => {
   const [product, setProduct] = useState<ProductCart>();
@@ -27,6 +26,7 @@ const Product = () => {
         <title>{product?.title}</title>
       </Head>
       {product && <ProductDetail product={product} />}
+      <ProductsRelated category={product?.category || ''} />
     </>
   );
 };

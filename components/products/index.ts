@@ -5,3 +5,4 @@ export { default as ProductPrice } from './ProductPrice';
 export { default as ProductSearch } from './ProductSearch';
 export { default as ProductAdded } from './ProductAdded';
 export { default as ProductsCategories } from './ProductsCategories';
+export { default as ProductsRelated } from './ProductsRelated';
