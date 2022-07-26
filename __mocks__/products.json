@@ -80,7 +80,7 @@
     "thumbnail": "https://i.etsystatic.com/9826975/c/1156/918/410/617/il/a01df0/2824660472/il_340x270.2824660472_e6m7.jpg",
     "image": "https://i.etsystatic.com/9826975/r/il/a01df0/2824660472/il_794xN.2824660472_e6m7.jpg",
     "rating": { "rate": 4.3, "count": 400 },
-    "seller": "Shoeble",
+    "seller": "Clothes4u",
     "stock": false
   },
   {
@@ -105,5 +105,137 @@
     "image": "https://i.etsystatic.com/9116133/r/il/9e64e1/2694750128/il_794xN.2694750128_3xs8.jpg",
     "seller": "Teespring",
     "rating": { "rate": 4.7, "count": 203 }
+  },
+  {
+    "id": 10,
+    "title": "Buffalo Plaid wool coat",
+    "price": 105.0,
+    "description": "100% boiled wool. Would recommend dry cleaning for washing it. It does not have lining. An outstanding piese of clothing for the upcoming season.",
+    "category": "sweatshirts",
+    "thumbnail": "https://i.etsystatic.com/9082252/c/2250/1786/0/132/il/0ab689/1342304346/il_340x270.1342304346_j5gd.jpg",
+    "image": "https://i.etsystatic.com/9082252/r/il/0ab689/1342304346/il_794xN.1342304346_j5gd.jpg",
+    "seller": "Clothes4u",
+    "rating": { "rate": 4.1, "count": 22 }
+  },
+  {
+    "id": 11,
+    "title": "Cozy Plant Sweatshirt",
+    "price": 40,
+    "description": "Made with high-quality products. Makes a great boho sweatshirt for her or a sweatshirt for him. Also available in plus size clothing if preferred.",
+    "category": "sweatshirts",
+    "thumbnail": "https://i.etsystatic.com/15217478/c/1879/1494/329/240/il/a26ceb/2854644737/il_340x270.2854644737_f3jk.jpg",
+    "image": "https://i.etsystatic.com/15217478/r/il/a26ceb/2854644737/il_794xN.2854644737_f3jk.jpg",
+    "seller": "Clothes4u",
+    "rating": { "rate": 4.4, "count": 98 }
+  },
+  {
+    "id": 12,
+    "title": "Hocus Pocus Sweatshirt",
+    "price": 65,
+    "description": "This cute Hocus Pocus sweatshirt is the perfect Halloween sweater and makes a fun outfit for your Halloween party. This is a soft, cozy unisex style sweatshirt.",
+    "category": "sweatshirts",
+    "thumbnail": "https://i.etsystatic.com/11217909/r/il/000e8b/2053923923/il_340x270.2053923923_9j29.jpg",
+    "image": "https://i.etsystatic.com/11217909/r/il/000e8b/2053923923/il_794xN.2053923923_9j29.jpg",
+    "seller": "Clothes4u",
+    "rating": { "rate": 3.75, "count": 21 }
+  },
+  {
+    "id": 13,
+    "title": "Self Care Hoodie",
+    "price": 35,
+    "description": "Measures are Half Bust -- Widht/Height\n\nS. 50.8/66cm\nM. 55.9/68.5cm\nL. 61/71.1cm\nXL. 66/73.6cm\nXXL. 71.1/76.2cm",
+    "category": "sweatshirts",
+    "thumbnail": "https://i.etsystatic.com/30410396/c/1111/883/52/80/il/3ec6e9/3748870339/il_340x270.3748870339_1rg3.jpg",
+    "image": "https://i.etsystatic.com/30410396/r/il/3ec6e9/3748870339/il_794xN.3748870339_1rg3.jpg",
+    "seller": "Clothes4u",
+    "rating": { "rate": 4.6, "count": 102 }
+  },
+  {
+    "id": 14,
+    "title": "Just One More Plant Sweatshirt",
+    "price": 35,
+    "description": "PROFESSIONALLY PRINTED USING ECO FRIENDLY WATER BASED INKS FOR A SUPERIOR RETAIL QUALITY FINISH onto a VERY HIGH QUALITY SWEATSHIRT\n\nWE USE 100% BIODEGRADABLE OR RECYCLABLE PACKAGING - ZERO PLASTIC!",
+    "category": "sweatshirts",
+    "thumbnail": "https://i.etsystatic.com/8723802/c/1947/1547/0/399/il/08e1d8/3720252805/il_340x270.3720252805_i1ok.jpg",
+    "image": "https://i.etsystatic.com/8723802/r/il/08e1d8/3720252805/il_794xN.3720252805_i1ok.jpg",
+    "seller": "Clothes4u",
+    "rating": { "rate": 4.2, "count": 74 }
+  },
+  {
+    "id": 15,
+    "title": "Men Harris Tweed Blazer Red Ribben 80's Scottish Wool",
+    "price": 39.99,
+    "description": "Item is in a very good condition. There are bearably visible marks. Please refer to pictures number:8,9,10. Garment comes from smoke and pet free home.",
+    "category": "jackets",
+    "thumbnail": "https://i.etsystatic.com/35471838/r/il/e200cf/4036650300/il_340x270.4036650300_7q4s.jpg",
+    "image": "https://i.etsystatic.com/35471838/r/il/e200cf/4036650300/il_794xN.4036650300_7q4s.jpg",
+    "seller": "FormalAttire",
+    "rating": { "rate": 4.3, "count": 11 }
+  },
+  {
+    "id": 16,
+    "title": "Artist / Gardening Smock - Natural cotton Denim",
+    "price": 99.99,
+    "description": "Traditionally worn as an outer garment, these smocks have a wide variety of uses.\nThey are extremely durable and can be washed time and again.\nGreat for men, women and children.",
+    "category": "jackets",
+    "thumbnail": "https://i.etsystatic.com/11089061/r/il/45a041/2531485506/il_340x270.2531485506_2xjt.jpg",
+    "image": "https://i.etsystatic.com/35471838/r/il/e200cf/4036650300/il_794xN.4036650300_7q4s.jpg",
+    "seller": "FormalAttire",
+    "rating": { "rate": 3.8, "count": 15 }
+  },
+  {
+    "id": 17,
+    "title": "Vintage 90's Tommy Hilfiger Jacket",
+    "price": 99.99,
+    "description": "Vintage 90's Tommy Hilfiger Athletic Gear Fleece Lined Winter Jacket Flag Logo Spell Out Color Block Navy /Blue/Yellow Size M",
+    "category": "jackets",
+    "thumbnail": "https://i.etsystatic.com/12681156/c/2250/1786/0/122/il/005690/1440712954/il_340x270.1440712954_k27l.jpg",
+    "image": "https://i.etsystatic.com/12681156/r/il/005690/1440712954/il_794xN.1440712954_k27l.jpg",
+    "seller": "FormalAttire",
+    "rating": { "rate": 3.3, "count": 3 }
+  },
+  {
+    "id": 18,
+    "title": "Vintage 90's Tommy Hilfiger Jacket",
+    "price": 399,
+    "description": "AVIREX LEDERJACKE\nAUS NICHTRAUCHER HAUSHALT!\nSAMMLER KENNEN IHREN WAHREN WERT",
+    "category": "jackets",
+    "thumbnail": "https://i.etsystatic.com/19707213/r/il/0bb13a/4084290661/il_340x270.4084290661_kvb0.jpg",
+    "image": "https://i.etsystatic.com/19707213/r/il/0bb13a/4084290661/il_794xN.4084290661_kvb0.jpg",
+    "seller": "FormalAttire",
+    "rating": { "rate": 3.8, "count": 5 }
+  },
+  {
+    "id": 19,
+    "title": "Star Wars T-Shirt",
+    "price": 19.99,
+    "description": "Unisex T-shirts featuring a crew neck, short sleeves and designed with superior airlume combed and ring-spun cotton that acts as the best blank canvas for printing.",
+    "category": "shirts",
+    "thumbnail": "https://i.etsystatic.com/35321619/r/il/388a2b/3882409914/il_340x270.3882409914_9hc7.jpg",
+    "image": "https://i.etsystatic.com/35321619/r/il/388a2b/3882409914/il_794xN.3882409914_9hc7.jpg",
+    "seller": "Teespring",
+    "rating": { "rate": 4.15, "count": 51 }
+  },
+  {
+    "id": 20,
+    "title": "Greek island T-shirt",
+    "price": 25,
+    "description": "All the designs are 100% designed by us & printed on 100% cotton T-shirts. The ink is eco and skin-friendly, printed in high printing technology which allows for a super soft print that will last for years. All the designs may also be printed on baby bodysuit & T-shirts for kids!",
+    "category": "shirts",
+    "thumbnail": "https://i.etsystatic.com/12035891/r/il/93a36d/3600387815/il_340x270.3600387815_70ow.jpg",
+    "image": "https://i.etsystatic.com/12035891/r/il/93a36d/3600387815/il_794xN.3600387815_70ow.jpg",
+    "seller": "Teespring",
+    "rating": { "rate": 3.15, "count": 94 }
+  },
+  {
+    "id": 21,
+    "title": "Frog & Toad The Lovers Tarot Card",
+    "price": 12,
+    "description": "All the designs are 100% designed by us & printed on 100% cotton T-shirts. The ink is eco and skin-friendly, printed in high printing technology which allows for a super soft print that will last for years. All the designs may also be printed on baby bodysuit & T-shirts for kids!",
+    "category": "shirts",
+    "thumbnail": "https://i.etsystatic.com/35150469/r/il/b6110d/3867201515/il_340x270.3867201515_nmoq.jpg",
+    "image": "https://i.etsystatic.com/35150469/r/il/b6110d/3867201515/il_794xN.3867201515_nmoq.jpg",
+    "seller": "Teespring",
+    "rating": { "rate": 4.6, "count": 422 }
   }
 ]
