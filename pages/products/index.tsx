@@ -1,8 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { useQuery, dehydrate, QueryClient } from 'react-query';
 import { ProductsGrid } from 'components/products';
-import dynamic from 'next/dynamic';
+import { Pagination } from 'components/ui';
 const ProductsCategories = dynamic(
   () => import('components/products/ProductsCategories'),
   {
@@ -25,8 +26,13 @@ export default function Products() {
       <div className={s.categories}>
         <ProductsCategories />
       </div>
-      <div className={s.products}>
-        <ProductsGrid productsData={data} />
+      <div className={s['products-container']}>
+        <div className={s.products}>
+          <ProductsGrid productsData={data} />
+        </div>
+        <div>
+          <Pagination amount={data?.length} />
+        </div>
       </div>
     </div>
   );

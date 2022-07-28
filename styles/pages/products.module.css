@@ -7,6 +7,10 @@
   flex-basis: 150px;
 }
 
+.products-container {
+  flex-direction: column;
+}
+
 .products {
   flex: 1;
 }

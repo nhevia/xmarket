@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5%;
+  margin-top: 30px;
+}
+
+.page-container {
+  border: 1px solid grey;
+  margin-right: 10px;
+}
+
+.page-container:disabled {
+  color: grey;
+  cursor: not-allowed;
+  background-color: rgb(240, 240, 240);
+  border-color: rgb(200, 200, 200);
+}
+
+.page-content {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}

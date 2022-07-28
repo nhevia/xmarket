@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useQuery } from 'react-query';
 import { useCartStore } from 'store/cart';
 import { useAuthStore } from 'store/auth';
+import { useFilterStore } from 'store/filters';
 import useIsMounted from 'hooks/useIsMounted';
 import Login from 'components/auth/Login';
 import Cart from 'components/cart/Cart';
 import ProductSearch from 'components/products/ProductSearch';
 import s from './Navbar.module.css';
+import { Product } from 'types/app';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,6 +19,13 @@ const Navbar = () => {
   const hasHydrated = useIsMounted();
   const quantity = useCartStore((state) => state.quantity);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const { setProductsTotalAmount } = useFilterStore((state) => state);
+
+  const { data } = useQuery<Product[]>('products', {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    enabled: false,
+  });
 
   const controlNavBar = () => {
     if (typeof window !== 'undefined') {
@@ -36,6 +46,10 @@ const Navbar = () => {
     !isLoggedIn && setShowModal(true);
   };
 
+  const handleApparelClick = () => {
+    data && setProductsTotalAmount(data.length);
+  };
+
   return (
     <>
       {showModal && <Login setVisible={setShowModal} />}
@@ -50,9 +64,11 @@ const Navbar = () => {
                 alt="site icon"
               />
             </Link>
-            <Link href="/products">
-              <a className={s['nav-item']}>Apparel</a>
-            </Link>
+            <div onClick={handleApparelClick}>
+              <Link href="/products">
+                <a className={s['nav-item']}>Apparel</a>
+              </Link>
+            </div>
           </div>
 
           <div className={s['nav-center']}>
