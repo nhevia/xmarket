@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useQuery } from 'react-query';
+import { useQueryClient } from 'react-query';
 import { useCartStore } from 'store/cart';
 import { useAuthStore } from 'store/auth';
 import { useFilterStore } from 'store/filters';
@@ -21,11 +21,7 @@ const Navbar = () => {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const { setProductsTotalAmount } = useFilterStore((state) => state);
 
-  const { data } = useQuery<Product[]>('products', {
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    enabled: false,
-  });
+  const queryClient = useQueryClient();
 
   const controlNavBar = () => {
     if (typeof window !== 'undefined') {
@@ -47,7 +43,8 @@ const Navbar = () => {
   };
 
   const handleApparelClick = () => {
-    data && setProductsTotalAmount(data.length);
+    const cachedProducts = queryClient.getQueryData<Product[]>('products');
+    cachedProducts && setProductsTotalAmount(cachedProducts.length);
   };
 
   return (

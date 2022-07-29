@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useQueryClient, QueryClient, dehydrate } from 'react-query';
+import { QueryClient, dehydrate } from 'react-query';
+import { useCachedData } from 'hooks/useCachedData';
 import { ProductDetail, ProductsRelated } from 'components/products';
 import { ProductCart } from 'types/app';
 
@@ -11,14 +12,13 @@ const Product = () => {
   const router = useRouter();
   const { pid } = router.query;
 
-  const queryCachedClient = useQueryClient();
-  const products: ProductCart[] | undefined =
-    queryCachedClient.getQueryData('products');
+  const cachedProducts = useCachedData<ProductCart[]>('products');
 
   useEffect(() => {
-    const queriedProduct = pid && products?.find((p) => p.id === Number(pid));
+    const queriedProduct =
+      pid && cachedProducts?.find((p) => p.id === Number(pid));
     if (queriedProduct) setProduct(queriedProduct);
-  }, [pid]);
+  }, [pid, cachedProducts]);
 
   return (
     <>
