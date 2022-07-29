@@ -3,15 +3,15 @@ export const categoriesConfiguration = {
     size: [36, 37, 38, 39, 40, 41, 42, 43],
   },
   shirts: {
-    color: ['Burgundy', 'Forest Green', 'Aquamarine', 'Chocolate', 'Teal'],
+    color: ['Black', 'Brown', 'Beige', 'Darkblue', 'White'],
     size: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   skirts: {
-    color: ['Burgundy', 'Forest Green', 'Aquamarine', 'Chocolate', 'Teal'],
+    color: ['Black', 'Brown', 'Beige', 'Darkblue', 'White'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
   },
   accesories: {},
-  sweatshirts: { color: ['Black', 'White', 'Grey', 'Brown'] },
+  sweatshirts: { color: ['Black', 'Brown', 'Beige', 'Darkblue', 'White'] },
   jackets: {
     color: ['Black', 'Grey', 'Brown'],
     size: ['S', 'M', 'L'],

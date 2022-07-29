@@ -7,10 +7,11 @@ import Rating from 'components/ui/Rating';
 import Tooltip from 'components/ui/Tooltip';
 import s from './ProductDetails.module.css';
 import { categoriesConfiguration } from '__mocks__/categories';
+import { ColorPicker } from 'components/common';
 
 const createDropdowns = (category: string) => {
   return Object.entries(categoriesConfiguration)
-    .filter((key) => key.includes(category))
+    .filter((key) => key.includes(category) && category !== 'color')
     .flat()[1];
 };
 
@@ -40,14 +41,28 @@ const ProductDetails = ({ product }: AppProps) => {
             {product.description}
           </p>
 
-          {Object.entries(createDropdowns(product.category)).map((el) => (
-            <Dropdown
-              key={el[0]}
-              label={el[0]}
-              options={el[1]}
-              optionHandler={() => ''}
-            />
-          ))}
+          {Object.entries(createDropdowns(product.category)).map((el) => {
+            if (el[0] !== 'color') {
+              return (
+                <Dropdown
+                  key={el[0]}
+                  label={el[0]}
+                  options={el[1]}
+                  optionHandler={() => ''}
+                />
+              );
+            }
+          })}
+
+          {(
+            categoriesConfiguration as {
+              [key: string]: {
+                [key: string]: string[] | number[];
+              };
+            }
+          )[product.category].color && (
+            <ColorPicker category={product.category} />
+          )}
 
           <div
             className={`p_small-margin ${s['product-description-shipping']}`}
