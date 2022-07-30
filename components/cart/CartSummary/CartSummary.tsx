@@ -19,12 +19,34 @@ const CartProducts = () => {
         Back to store
       </p>
       {products?.map((p) => (
-        <div key={p.title} className={s.product}>
+        <div key={`${p.id}_${p.color}_${p.size}`} className={s.product}>
           <img src={p.thumbnail} alt={p.title} />
+
           <div className={s['product-description']}>
-            <p className={s.name}>
-              {p.title} <span className={s.description}>({p.count})</span>
-            </p>
+            <div className={s.info}>
+              <p className={s.name}>
+                {p.title} <span className={s.description}>({p.count})</span>
+              </p>
+              <div>
+                <div className={s.options}>
+                  {p.color && (
+                    <div
+                      className={s.colorc}
+                      style={{
+                        backgroundImage: `linear-gradient(${p.color},${p.color})`,
+                      }}
+                    >
+                      <p className={s.color}>{p.color}</p>
+                    </div>
+                  )}
+                  {p.size && (
+                    <div className={s.sizec}>
+                      <p className={s.size}>{p.size}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
             <p className={s.price}>${(p.count * p.price).toFixed(2)}</p>
           </div>
         </div>

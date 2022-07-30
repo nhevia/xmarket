@@ -21,7 +21,10 @@ const Cart = ({ setVisible }: AppProps) => {
           {'Back to store'}
         </p>
         {products?.map((product: ProductCart) => (
-          <div key={product.id} className={s.product}>
+          <div
+            key={`${product.id}_${product.color}_${product.size}`}
+            className={s.product}
+          >
             <div
               style={{
                 display: 'flex',
@@ -30,7 +33,26 @@ const Cart = ({ setVisible }: AppProps) => {
               }}
             >
               <img src={product.thumbnail} alt={product.title} />
-              <p className={s.name}>{product.title}</p>
+              <div className={s.summary}>
+                <p className={s.name}>{product.title}</p>
+                <div className={s.options}>
+                  {product.color && (
+                    <div
+                      className={s.colorc}
+                      style={{
+                        backgroundImage: `linear-gradient(${product.color},${product.color})`,
+                      }}
+                    >
+                      <p className={s.color}>{product.color}</p>
+                    </div>
+                  )}
+                  {product.size && (
+                    <div className={s.sizec}>
+                      <p className={s.size}>{product.size}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
             <div className={s.actions}>
               <p className={s['quantity-text']}>x{product.count}</p>

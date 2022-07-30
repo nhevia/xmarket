@@ -11,7 +11,10 @@ export const categoriesConfiguration = {
     size: ['XS', 'S', 'M', 'L', 'XL'],
   },
   accesories: {},
-  sweatshirts: { color: ['Black', 'Brown', 'Beige', 'Darkblue', 'White'] },
+  sweatshirts: {
+    color: ['Black', 'Brown', 'Beige', 'Darkblue', 'White'],
+    size: ['XS', 'S', 'M', 'L', 'XL'],
+  },
   jackets: {
     color: ['Black', 'Grey', 'Brown'],
     size: ['S', 'M', 'L'],
