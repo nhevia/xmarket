@@ -1,5 +1,6 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
+import { deepEqual } from 'utils/deepEqual';
 import { ProductCart } from 'types/app';
 
 interface CartStore {
@@ -22,7 +23,12 @@ export const useCartStore = create<CartStore>()(
         addProduct: (product) => {
           set(
             (state) => {
-              const isPresent = state.products.find((p) => p.id === product.id);
+              const isPresent = state.products.find(
+                (p) =>
+                  p.id === product.id &&
+                  p.color === product.color &&
+                  p.size === product.size
+              );
 
               if (!isPresent) {
                 return {
@@ -39,7 +45,11 @@ export const useCartStore = create<CartStore>()(
               }
 
               const updatedProducts = state.products.map((p) =>
-                p.id === product.id ? { ...p, count: p.count + 1 } : p
+                p.id === product.id &&
+                p.color === product.color &&
+                p.size === product.size
+                  ? { ...p, count: p.count + 1 }
+                  : p
               );
 
               return {
@@ -56,10 +66,14 @@ export const useCartStore = create<CartStore>()(
           set(
             (state) => {
               if (product.count <= 1) {
+                const updatedProducts = state.products.filter(
+                  (p) => !deepEqual(p, product)
+                );
+
                 return {
                   quantity: state.quantity - 1,
                   total: state.total - product.price,
-                  products: state.products.filter((p) => p.id !== product.id),
+                  products: updatedProducts,
                 };
               }
 
@@ -67,7 +81,11 @@ export const useCartStore = create<CartStore>()(
                 quantity: state.quantity - 1,
                 total: state.total - product.price,
                 products: state.products.map((p) =>
-                  p.id === product.id ? { ...p, count: p.count - 1 } : p
+                  p.id === product.id &&
+                  p.color === product.color &&
+                  p.size === product.size
+                    ? { ...p, count: p.count - 1 }
+                    : p
                 ),
               };
             },
@@ -75,12 +93,18 @@ export const useCartStore = create<CartStore>()(
             'subtractProduct'
           );
         },
+        // TODO (not in use) wont work - requires deepequal
         removeProduct: (product) => {
           set(
             (state) => ({
               quantity: state.quantity - product.count,
               total: state.total - product.price * product.count,
-              products: state.products.filter((p) => p.id !== product.id),
+              products: state.products.filter(
+                (p) =>
+                  p.id !== product.id &&
+                  p.color !== product.color &&
+                  p.size !== product.size
+              ),
             }),
             false,
             'removeProduct'
