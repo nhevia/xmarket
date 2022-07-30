@@ -2,7 +2,6 @@
   position: sticky;
   top: 0px;
   z-index: 30;
-  width: calc(100vw - 15px);
 }
 
 @media (hover: none) {
