@@ -13,6 +13,8 @@ export interface Product {
 
 export interface ProductCart extends Product {
   count: number;
+  size?: string;
+  color?: string;
 }
 
 export interface PropsWithChildren {

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ProductCart } from 'types/app';
 import { ProductPrice } from 'components/products';
 import CartAdd from 'components/cart/CartAdd';
 import Dropdown from 'components/ui/Dropdown';
 import Rating from 'components/ui/Rating';
 import Tooltip from 'components/ui/Tooltip';
+import { ColorPicker } from 'components/common';
 import s from './ProductDetails.module.css';
 import { categoriesConfiguration } from '__mocks__/categories';
-import { ColorPicker } from 'components/common';
 
 const createDropdowns = (category: string) => {
   return Object.entries(categoriesConfiguration)
@@ -20,6 +20,21 @@ interface AppProps {
 }
 
 const ProductDetails = ({ product }: AppProps) => {
+  const [color, setColor] = useState('');
+  const [size, setSize] = useState('');
+  const [cartProduct, setCartProduct] = useState<ProductCart>(product);
+
+  useEffect(() => {
+    // updates product with options to separate items in Cart
+    setCartProduct((prev) => ({ ...prev, color: color, size: size }));
+  }, [color, size]);
+
+  // prevent rerender the discounted price bc math.random usage
+  const memoPrice = React.useMemo(
+    () => <ProductPrice price={product.price} discount={Math.random() < 0.5} />,
+    [product.price]
+  );
+
   return (
     <div>
       <div className={s['product-container']}>
@@ -35,7 +50,7 @@ const ProductDetails = ({ product }: AppProps) => {
 
           <Rating rating={product.rating} style={{ marginTop: '10px' }} />
 
-          <ProductPrice price={product.price} discount={Math.random() < 0.5} />
+          {memoPrice}
 
           <p className={s['product-description-description']}>
             {product.description}
@@ -48,7 +63,7 @@ const ProductDetails = ({ product }: AppProps) => {
                   key={el[0]}
                   label={el[0]}
                   options={el[1]}
-                  optionHandler={() => ''}
+                  optionHandler={setSize}
                 />
               );
             }
@@ -61,7 +76,10 @@ const ProductDetails = ({ product }: AppProps) => {
               };
             }
           )[product.category].color && (
-            <ColorPicker category={product.category} />
+            <ColorPicker
+              category={product.category}
+              onClickHandler={setColor}
+            />
           )}
 
           <div
@@ -86,7 +104,7 @@ const ProductDetails = ({ product }: AppProps) => {
           <div className={s['product-description-seller']}>
             Sold by <Tooltip text={product.seller} />
           </div>
-          <CartAdd product={product} />
+          <CartAdd product={cartProduct} />
         </div>
       </div>
     </div>
