@@ -4,9 +4,10 @@ import s from './ColorPicker.module.css';
 
 interface AppProps {
   category: string;
+  onClickHandler: (val: string) => void;
 }
 
-const ColorPicker = ({ category }: AppProps) => {
+const ColorPicker = ({ category, onClickHandler }: AppProps) => {
   const [hoveredColor, setHoveredColor] = useState('');
 
   const itemsRef = useRef<Array<HTMLDivElement | null>>([]);
@@ -17,10 +18,9 @@ const ColorPicker = ({ category }: AppProps) => {
     itemsRef.current.forEach((el) => el?.setAttribute('style', 'opacity: 0'));
     itemsRef.current
       .find((el) => el === e.target)
-      ?.setAttribute(
-        'style',
-        `opacity: 1; border-color: ${(e.target as HTMLElement).id}`
-      );
+      ?.setAttribute('style', `opacity: 1`);
+
+    onClickHandler((e.target as HTMLElement).id);
   };
 
   return (
