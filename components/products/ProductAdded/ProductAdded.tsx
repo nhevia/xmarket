@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { useCartStore } from 'store/cart';
 import { Product } from 'types/app';
 import s from './ProductAdded.module.css';
 
@@ -9,6 +10,8 @@ interface AppProps {
 }
 
 const ProductAdded = ({ product, setVisible }: AppProps) => {
+  const { total } = useCartStore((state) => state);
+
   return (
     <div className={s.root}>
       <div className={s.image}>
@@ -23,19 +26,11 @@ const ProductAdded = ({ product, setVisible }: AppProps) => {
         <div className={s['column-title']}>Item Price</div>
         <span>${product.price}</span>
       </div>
-      <div className={s.quantity}>
-        <div className={s['column-title']}>Qty</div>
-        <span>1</span>
-      </div>
-      <div className={s.total}>
-        <div className={s['column-title']}>Total price</div>
-        <span>${product.price}</span>
-      </div>
       <div className={s.subtotal}>
         <div className={s['column-title']} style={{ marginRight: 0 }}>
-          Subtotal
+          Cart total
         </div>
-        <span>${product.price}</span>
+        <span>${total.toFixed(2).replace('-0', '0')}</span>
       </div>
 
       <div className={s.actions}>
