@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 import { useCartStore } from 'store/cart';
-import { Product } from 'types/app';
+import { ProductCart } from 'types/app';
 import s from './ProductAdded.module.css';
 
 interface AppProps {
-  product: Product;
+  product: ProductCart;
   setVisible: (setIsVisible: boolean) => void;
 }
 
@@ -20,7 +20,27 @@ const ProductAdded = ({ product, setVisible }: AppProps) => {
       </div>
       <div className={s.title}>
         <div className={s['column-title']}>Item</div>
-        <span className={s.big}>{product.title}</span>
+
+        <div className={s.summary}>
+          <p className={s.big}>{product.title}</p>
+          <div className={s.options}>
+            {product.color && (
+              <div
+                className={s.colorc}
+                style={{
+                  backgroundImage: `linear-gradient(${product.color},${product.color})`,
+                }}
+              >
+                <p className={s.color}>{product.color}</p>
+              </div>
+            )}
+            {product.size && (
+              <div className={s.sizec}>
+                <p className={s.size}>{product.size}</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
       <div className={s.price}>
         <div className={s['column-title']}>Item Price</div>
