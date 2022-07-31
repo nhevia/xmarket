@@ -14,7 +14,7 @@ const CartProducts = () => {
         Order Summary
         <span className={s.description}> ({quantity} items)</span>
       </p>
-      <p className={s.total}>TOTAL ${total.toFixed(2)}</p>
+      <p className={s.total}>TOTAL ${total.toFixed(2).replace('-0', '0')}</p>
       <p className={s.back} onClick={() => router.push('/products')}>
         Back to store
       </p>

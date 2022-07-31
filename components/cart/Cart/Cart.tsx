@@ -68,7 +68,7 @@ const Cart = ({ setVisible }: AppProps) => {
         <div className={s.labels}>
           <div className={s.label}>
             <p>subtotal </p>
-            <p className={s.bold}>${total.toFixed(2)}</p>
+            <p className={s.bold}>${total.toFixed(2).replace('-0', '0')}</p>
           </div>
           <div className={s.label}>
             <p>shipping </p>
@@ -76,7 +76,7 @@ const Cart = ({ setVisible }: AppProps) => {
           </div>
           <div className={s.label}>
             <p>total </p>
-            <p className={s.bold}>${total.toFixed(2)}</p>
+            <p className={s.bold}>${total.toFixed(2).replace('-0', '0')}</p>
           </div>
         </div>
         <div className={s.actions}>
