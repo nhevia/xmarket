@@ -15,6 +15,7 @@
 }
 
 .right {
+  height: 100%;
   min-height: 100%;
   min-width: 500px;
   max-width: 500px;
