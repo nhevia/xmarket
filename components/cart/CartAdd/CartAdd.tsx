@@ -29,7 +29,12 @@ const CartAdd = ({ product, style }: AppProps) => {
   return (
     <>
       {isVisible && (
-        <Drawer position="top" isBlurred={false} setVisible={setIsVisible}>
+        <Drawer
+          position="top"
+          isBlurred={false}
+          setVisible={setIsVisible}
+          disableScrollbar={false}
+        >
           <ProductAdded product={product} setVisible={setIsVisible} />
         </Drawer>
       )}
