@@ -45,6 +45,7 @@ const Login = ({ setVisible }: AppProps) => {
       <div className={s.row}>
         <label>Email</label>
         <input
+          className={s.input}
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -54,21 +55,17 @@ const Login = ({ setVisible }: AppProps) => {
       <div className={s.row}>
         <label>Password</label>
         <input
+          className={s.input}
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       <div className={s.buttons}>
-        <button type="submit" disabled={isLoading}>
+        <button className={s.login} type="submit" disabled={isLoading}>
           Login
         </button>
-        <button
-          className="no-shadow"
-          style={{ outline: 'none', border: 'none' }}
-        >
-          ... or Register
-        </button>
+        <button className={`${s.register} no-shadow`}>... or Register</button>
       </div>
       {isError && <p style={{ color: 'red' }}>use@this.email / aaaddd</p>}
     </form>
