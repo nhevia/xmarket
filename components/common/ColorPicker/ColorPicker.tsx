@@ -17,10 +17,11 @@ interface AppProps {
 const ColorPicker = forwardRef<HTMLDivElement, AppProps>(
   ({ category, onClickHandler, required = false }, ref) => {
     const [hoveredColor, setHoveredColor] = useState('');
+    const [selectedColor, setSelectedColor] = useState('');
 
     const itemsRef = useRef<Array<HTMLDivElement | null>>([]);
 
-    const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+    const handleClick = (e: MouseEvent<HTMLDivElement>, color: string) => {
       // TODO another option is migrating the color boxes to their own component and
       // using context or passing down setstate
       itemsRef.current.forEach((el) => el?.setAttribute('style', 'opacity: 0'));
@@ -28,7 +29,8 @@ const ColorPicker = forwardRef<HTMLDivElement, AppProps>(
         .find((el) => el === e.target)
         ?.setAttribute('style', `opacity: 1`);
 
-      onClickHandler((e.target as HTMLElement).id);
+      onClickHandler(color);
+      setSelectedColor(color);
     };
 
     return (
@@ -50,8 +52,11 @@ const ColorPicker = forwardRef<HTMLDivElement, AppProps>(
                 key={color}
                 className={s.color}
                 style={{ backgroundColor: color as string }}
-                onClick={(e) => handleClick(e)}
+                onClick={(e) => handleClick(e, color as string)}
                 onMouseOver={() => setHoveredColor(color as string)}
+                onMouseLeave={() => {
+                  setHoveredColor(selectedColor);
+                }}
               >
                 <div
                   id={color as string}
