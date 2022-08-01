@@ -123,3 +123,9 @@
     font-size: 14px;
   }
 }
+
+@media (max-height: 700px) and (max-width: 1200px) {
+  .products {
+    display: none;
+  }
+}

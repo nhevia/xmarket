@@ -113,6 +113,13 @@
   }
 }
 
+@media (max-width: 400px) {
+  .root {
+    min-width: auto;
+    padding: 10px 10px;
+  }
+}
+
 @keyframes shake {
   30% {
     transform: rotate(20deg);
