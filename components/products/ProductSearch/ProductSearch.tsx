@@ -47,6 +47,7 @@ const ProductSearch = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           aria-hidden="true"
+          aria-label="search products"
           focusable="false"
           fill="black"
           className={s.icon}

@@ -4,17 +4,15 @@ import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
 
 describe('CheckoutForm', () => {
-  it('renders the component with a valid Elements provider and finds the Pay button', () => {
-    const stripePromise = loadStripe(
-      `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
-    );
-
+  it('shows loading dots when the stripe Elements componente is not initializated yet', () => {
     render(
-      <Elements stripe={stripePromise}>
+      <Elements stripe={null}>
         <CheckoutForm />
       </Elements>
     );
 
-    expect(screen.getByText('Pay')).toBeInTheDocument();
+    expect(screen.getByTestId('loading dots')).toBeInTheDocument();
   });
+
+  // TODO mock conversation https://github.com/stripe/react-stripe-js/issues/59
 });

@@ -24,12 +24,14 @@ const CartAdd = ({ product, style, disableHandle }: AppProps) => {
   useEffect(() => {
     if (showError) {
       if (ref.current) {
+        ref.current.setAttribute('aria-label', 'error');
         ref.current.classList.add(s.error);
       }
     }
 
     if (!showError) {
       if (ref.current) {
+        ref.current.removeAttribute('aria-label');
         ref.current.classList.remove(s.error);
       }
     }

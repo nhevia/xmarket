@@ -57,6 +57,7 @@ const ColorPicker = forwardRef<HTMLDivElement, AppProps>(
                 onMouseLeave={() => {
                   setHoveredColor(selectedColor);
                 }}
+                aria-label={color as string}
               >
                 <div
                   id={color as string}

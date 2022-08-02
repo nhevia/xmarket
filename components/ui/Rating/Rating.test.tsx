@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Rating from './Rating';
 
 describe('Rating', () => {
-  it('shows the correct rate and count', () => {
+  it('shows rating information', () => {
     render(<Rating rating={{ rate: 4.6, count: 200 }} />);
 
     expect(

@@ -14,7 +14,7 @@ const ProductCard = ({ product }: AppProps) => {
     <Link
       href={`/products/${product.id}?p=${product.title.replaceAll(' ', '-')}`}
     >
-      <a className={s['product-container']}>
+      <a className={s['product-container']} aria-label="product">
         <div className={s['product-image']}>
           <Image
             src={product.thumbnail}

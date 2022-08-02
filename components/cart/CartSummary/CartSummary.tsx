@@ -20,7 +20,11 @@ const CartProducts = () => {
       </p>
       <div className={s.products}>
         {products?.map((p) => (
-          <div key={`${p.id}_${p.color}_${p.size}`} className={s.product}>
+          <div
+            key={`${p.id}_${p.color}_${p.size}`}
+            className={s.product}
+            aria-label="product summary"
+          >
             <img src={p.thumbnail} alt={p.title} />
 
             <div className={s['product-description']}>

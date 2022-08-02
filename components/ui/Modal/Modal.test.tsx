@@ -2,11 +2,24 @@ const { render, screen, fireEvent } = require('@testing-library/react');
 import Modal from './Modal';
 
 describe('Modal', () => {
+  let mockVisible: (visible: boolean) => void;
+  beforeEach(() => {
+    mockVisible = jest.fn();
+  });
+
   it('renders a modal with all the content', () => {
     const header = <p>header</p>;
     const content = <div>content</div>;
     const footer = <p>footer</p>;
-    render(<Modal header={header} content={content} footer={footer} />);
+
+    render(
+      <Modal
+        setVisible={mockVisible}
+        header={header}
+        content={content}
+        footer={footer}
+      />
+    );
 
     expect(screen.getByText('header')).toBeInTheDocument();
     expect(screen.getByText('content')).toBeInTheDocument();
@@ -15,7 +28,9 @@ describe('Modal', () => {
 
   it('renders a modal with only the content', () => {
     const content = <div>content</div>;
-    render(<Modal content={content} closable={false} />);
+    render(
+      <Modal setVisible={mockVisible} content={content} closable={false} />
+    );
 
     expect(screen.queryByText('header')).not.toBeInTheDocument();
     expect(screen.queryByText('footer')).not.toBeInTheDocument();
@@ -26,14 +41,13 @@ describe('Modal', () => {
   });
 
   it('closes the modal', () => {
-    const setVisible = jest.fn();
     const content = <div>content</div>;
-    render(<Modal setVisible={setVisible} content={content} />);
+    render(<Modal setVisible={mockVisible} content={content} />);
 
     const closeButton = screen.getByLabelText('close popup window');
     fireEvent.click(closeButton);
 
     expect(closeButton).toBeInTheDocument();
-    expect(setVisible).toHaveBeenCalled();
+    expect(mockVisible).toHaveBeenCalled();
   });
 });

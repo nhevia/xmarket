@@ -13,7 +13,7 @@ const CartProducts = () => {
       </p>
       <p className={s.total}>TOTAL ${total.toFixed(2).replace('-0', '0')}</p>
       {products?.map((p) => (
-        <div key={p.title} className={s.product}>
+        <div key={p.title} className={s.product} aria-label="product summary">
           <img src={p.thumbnail} alt={p.title} />
           <div className={s['product-description']}>
             <p className={s.name}>

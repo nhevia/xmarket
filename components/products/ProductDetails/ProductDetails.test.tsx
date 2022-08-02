@@ -17,7 +17,11 @@ describe('ProductsDetails', () => {
       rating: { rate: 4.8, count: 500 },
       seller: 'Michael',
       stock: true,
+      count: 1,
     };
+
+    // Warning: Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>.
+    jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<ProductDetail product={product} />);
   });

@@ -1,28 +1,11 @@
 import { screen, render } from '@testing-library/react';
 import ProductCard from './ProductCard';
+import products from '__mocks__/products.json';
 
 describe('ProductCard', () => {
-  beforeEach(() => {
-    const product = {
-      id: 1,
-      title: "Women's Middle English - BROWN",
-      price: 49.99,
-      description:
-        'Handmade in Aurora, New York. Tried and true, the Middle English is a monk style flat that is the very definition of comfort. The full grain, leather construction molds to your foot with wear, and the Vibram rubber sole lets you walk comfortably for miles. This simple style can be appropriate for any occasion. This is the trademark shoe that we have been producing for 20+ years.',
-      category: 'shoes',
-      thumbnail:
-        'https://i.etsystatic.com/5774162/r/il/df182d/368098407/il_340x270.368098407_dm1y.jpg',
-      image:
-        'https://i.etsystatic.com/5774162/r/il/df182d/368098407/il_794xN.368098407_dm1y.jpg',
-      rating: { rate: 3.8, count: 120 },
-      seller: 'Michael',
-      stock: true,
-    };
-
-    render(<ProductCard product={product} />);
-  });
-
   it('shows the product card information', () => {
+    render(<ProductCard product={products[0]} />);
+
     expect(screen.getByRole('link')).toHaveAttribute(
       'href',
       '/products/1?p=Women%27s-Middle-English---BROWN'

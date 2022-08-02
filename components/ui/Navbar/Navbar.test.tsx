@@ -5,7 +5,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 describe('Navbar', () => {
   const queryClient = new QueryClient();
 
-  it('renders the navbar element', () => {
+  it('renders the default navbar element', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Navbar />
