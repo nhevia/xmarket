@@ -1,17 +1,17 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ProductPrice from './ProductPrice';
 
 describe('ProductPrice', () => {
   it('shows the product price without discount', () => {
-    const { getByText } = render(<ProductPrice price={40} discount={false} />);
+    render(<ProductPrice price={40} discount={false} />);
 
-    getByText('$40.00');
+    expect(screen.getByText('$40.00')).toBeInTheDocument();
   });
 
   it('shows the product price with discount and savings', () => {
-    const { getByText } = render(<ProductPrice price={40} discount={true} />);
+    render(<ProductPrice price={40} discount={true} />);
 
-    getByText('$36.00');
-    getByText('You save $4.00');
+    expect(screen.getByText('$36.00')).toBeInTheDocument();
+    expect(screen.getByText('You save $4.00')).toBeInTheDocument();
   });
 });

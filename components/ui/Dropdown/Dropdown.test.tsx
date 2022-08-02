@@ -1,26 +1,26 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Dropdown from './Dropdown';
 
 describe('Dropdown', () => {
   it('selects the default option', () => {
-    const { getByText } = render(<Dropdown options={['T-shirt', 'Skirt']} />);
+    render(<Dropdown options={['T-shirt', 'Skirt']} />);
 
-    expect((getByText('Select an option') as HTMLOptionElement).selected).toBe(
-      true
-    );
+    expect(
+      (screen.getByText('Select an option') as HTMLOptionElement).selected
+    ).toBe(true);
   });
 
   it('select a non default option when selected', () => {
-    const { getByRole } = render(<Dropdown options={['T-shirt', 'Skirt']} />);
-
-    const select = getByRole('combobox');
+    render(<Dropdown options={['T-shirt', 'Skirt']} />);
 
     // userEvent.selectOptions is still not working /testing-library/user-event/issues/358
-    fireEvent.change(select, { target: { value: 'Skirt' } });
+    fireEvent.change(screen.getByRole('combobox'), {
+      target: { value: 'Skirt' },
+    });
 
     expect(
       (
-        getByRole('option', {
+        screen.getByRole('option', {
           name: 'Skirt',
         }) as HTMLOptionElement
       ).selected

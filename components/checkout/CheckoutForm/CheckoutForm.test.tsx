@@ -1,6 +1,6 @@
+import { render, screen } from '@testing-library/react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { render, screen } from '@testing-library/react';
 import CheckoutForm from './CheckoutForm';
 
 describe('CheckoutForm', () => {
@@ -15,6 +15,6 @@ describe('CheckoutForm', () => {
       </Elements>
     );
 
-    screen.getByText('Pay');
+    expect(screen.getByText('Pay')).toBeInTheDocument();
   });
 });

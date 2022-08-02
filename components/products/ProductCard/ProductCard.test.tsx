@@ -23,24 +23,21 @@ describe('ProductCard', () => {
   });
 
   it('shows the product card information', () => {
-    const link = screen.getByRole('link');
-    expect(link).toHaveAttribute(
+    expect(screen.getByRole('link')).toHaveAttribute(
       'href',
       '/products/1?p=Women%27s-Middle-English---BROWN'
     );
 
-    const name = screen.getByAltText("Women's Middle English - BROWN");
-    expect(name).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Women's Middle English - BROWN")
+    ).toBeInTheDocument();
 
-    const rating = screen.getByLabelText(
-      'Rating of this product is 3.8 out of 5.'
-    );
-    expect(rating).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('Rating of this product is 3.8 out of 5.')
+    ).toBeInTheDocument();
 
-    const reviews = screen.getByText('(120)');
-    expect(reviews).toBeInTheDocument();
+    expect(screen.getByText('(120)')).toBeInTheDocument();
 
-    const price = screen.getByText('$49.99');
-    expect(price).toBeInTheDocument();
+    expect(screen.getByText('$49.99')).toBeInTheDocument();
   });
 });

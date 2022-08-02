@@ -1,4 +1,4 @@
-const { screen, render, fireEvent } = require('@testing-library/react');
+const { render, screen, fireEvent } = require('@testing-library/react');
 import Modal from './Modal';
 
 describe('Modal', () => {

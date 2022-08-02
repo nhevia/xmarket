@@ -12,13 +12,13 @@ describe('Navbar', () => {
       </QueryClientProvider>
     );
 
-    screen.getByLabelText('main navigation');
+    expect(screen.getByLabelText('main navigation')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Apparel' })).toHaveAttribute(
       'href',
       '/products'
     );
-    screen.getByRole('textbox');
-    screen.getByAltText('go to the shopping cart');
-    screen.getByLabelText('login');
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    expect(screen.getByAltText('go to the shopping cart')).toBeInTheDocument();
+    expect(screen.getByLabelText('login')).toBeInTheDocument();
   });
 });
