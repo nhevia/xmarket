@@ -17,6 +17,12 @@
   font-size: 1em;
   font-weight: 500;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.title:hover {
+  background-color: black;
+  color: white;
 }
 
 .category {

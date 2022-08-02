@@ -6,7 +6,7 @@ interface AppProps {
 
 const Dots = ({ color }: AppProps) => {
   return (
-    <div className={s.dots}>
+    <div className={s.dots} data-testid="loading dots">
       <div
         className={s.bounce1}
         style={color ? { backgroundColor: color } : {}}

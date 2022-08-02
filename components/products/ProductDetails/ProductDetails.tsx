@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { ProductCart } from 'types/app';
+import React, { useState, useEffect, useRef } from 'react';
 import { ProductPrice } from 'components/products';
 import CartAdd from 'components/cart/CartAdd';
 import Dropdown from 'components/ui/Dropdown';
 import Rating from 'components/ui/Rating';
 import Tooltip from 'components/ui/Tooltip';
 import { ColorPicker } from 'components/common';
+import { ProductCart } from 'types/app';
 import s from './ProductDetails.module.css';
 import { categoriesConfiguration } from '__mocks__/categories';
 
@@ -23,6 +23,10 @@ const ProductDetails = ({ product }: AppProps) => {
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
   const [cartProduct, setCartProduct] = useState<ProductCart>(product);
+  const [isValidated, setIsValidated] = useState(true);
+
+  const sizeRef = useRef<HTMLSelectElement>(null);
+  const colorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // updates product with options to separate items in Cart
@@ -34,6 +38,26 @@ const ProductDetails = ({ product }: AppProps) => {
     () => <ProductPrice price={product.price} discount={Math.random() < 0.5} />,
     [product.price]
   );
+
+  useEffect(() => {
+    let valSize, valColor;
+
+    if (sizeRef.current) {
+      valSize = Boolean(size);
+    }
+
+    if (colorRef.current) {
+      valColor = Boolean(color);
+    }
+
+    if (valSize === false || valColor === false) {
+      console.log('not validated');
+      setIsValidated(false);
+    } else {
+      console.log('validated');
+      setIsValidated(true);
+    }
+  }, [size, color]);
 
   return (
     <div>
@@ -59,12 +83,15 @@ const ProductDetails = ({ product }: AppProps) => {
           {Object.entries(createDropdowns(product.category)).map((el) => {
             if (el[0] !== 'color') {
               return (
-                <Dropdown
-                  key={el[0]}
-                  label={el[0]}
-                  options={el[1]}
-                  optionHandler={setSize}
-                />
+                <div key={el[0]}>
+                  <Dropdown
+                    label={el[0]}
+                    options={el[1]}
+                    optionHandler={setSize}
+                    required
+                    ref={sizeRef}
+                  />
+                </div>
               );
             }
           })}
@@ -79,6 +106,8 @@ const ProductDetails = ({ product }: AppProps) => {
             <ColorPicker
               category={product.category}
               onClickHandler={setColor}
+              required
+              ref={colorRef}
             />
           )}
 
@@ -104,7 +133,8 @@ const ProductDetails = ({ product }: AppProps) => {
           <div className={s['product-description-seller']}>
             Sold by <Tooltip text={product.seller} />
           </div>
-          <CartAdd product={cartProduct} />
+
+          <CartAdd product={cartProduct} disableHandle={!isValidated} />
         </div>
       </div>
     </div>

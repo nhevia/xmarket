@@ -17,41 +17,36 @@ describe('ProductsDetails', () => {
       rating: { rate: 4.8, count: 500 },
       seller: 'Michael',
       stock: true,
+      count: 1,
     };
+
+    // Warning: Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>.
+    jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<ProductDetail product={product} />);
   });
 
   it('shows the product detail information', () => {
-    const image = screen.getByAltText('product image');
-    expect(image).toBeInTheDocument();
-
-    const name = screen.getByText(
-      'Custom handmade Gold or red Lace Bridal Platform'
-    );
-    expect(name).toBeInTheDocument();
-
-    const rating = screen.getByLabelText(
-      'Rating of this product is 4.8 out of 5.'
-    );
-    expect(rating).toBeInTheDocument();
-
-    const price = screen.getByText('$120.00');
-    expect(price).toBeInTheDocument();
-
-    const description = screen.getByText(
-      'A perfect combination of Lace and Satin all intertwined in our custom handmade Lace Platform high heel court.'
-    );
-    expect(description).toBeInTheDocument();
-
-    const addToCart = screen.getByRole('button', { name: 'Add to cart' });
-    expect(addToCart).toBeInTheDocument();
+    expect(screen.getByAltText('product image')).toBeInTheDocument();
+    expect(
+      screen.getByText('Custom handmade Gold or red Lace Bridal Platform')
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('Rating of this product is 4.8 out of 5.')
+    ).toBeInTheDocument();
+    expect(screen.getByText('$120.00')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'A perfect combination of Lace and Satin all intertwined in our custom handmade Lace Platform high heel court.'
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Add to cart' })
+    ).toBeInTheDocument();
   });
 
   it('selects a size using the dropdown', () => {
-    const dropdown = screen.getByRole('combobox');
-
-    fireEvent.change(dropdown, { target: { value: '43' } });
+    fireEvent.change(screen.getByRole('combobox'), { target: { value: '43' } });
 
     expect(
       (screen.getByRole('option', { name: '43' }) as HTMLOptionElement).selected

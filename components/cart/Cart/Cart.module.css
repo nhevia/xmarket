@@ -1,6 +1,7 @@
 .root {
   padding: 40px 20px;
   flex: 1;
+  overflow: auto;
 }
 
 .root button {
@@ -165,6 +166,8 @@
   border-bottom: 1px solid rgb(200, 200, 200);
   padding: 3px;
   visibility: hidden;
+  background-color: black;
+  color: white;
 }
 
 @media (max-width: 800px) {

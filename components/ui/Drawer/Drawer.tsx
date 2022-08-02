@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './Drawer.module.css';
 
 interface AppProps {
@@ -6,6 +6,7 @@ interface AppProps {
   children?: React.ReactNode;
   position?: 'top' | 'right';
   isBlurred?: boolean;
+  disableScrollbar?: boolean;
 }
 
 const Sider = ({
@@ -13,7 +14,17 @@ const Sider = ({
   position = 'right',
   isBlurred = true,
   children,
+  disableScrollbar = true,
 }: AppProps) => {
+  useEffect(() => {
+    if (disableScrollbar) {
+      disableScrollbar &&
+        document.body.setAttribute('class', 'scrollbar-disabled');
+
+      return () => disableScrollbar && document.body.removeAttribute('class');
+    }
+  }, [disableScrollbar]);
+
   const onClose = () => {
     setVisible(false);
   };

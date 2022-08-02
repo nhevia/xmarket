@@ -26,7 +26,10 @@ const Product = () => {
         <title>{product?.title}</title>
       </Head>
       {product && <ProductDetail product={product} />}
-      <ProductsRelated category={product?.category || ''} />
+      <ProductsRelated
+        category={product?.category || ''}
+        title={product?.title || ''}
+      />
     </>
   );
 };

@@ -10,6 +10,6 @@ describe('Drawer', () => {
       </Drawer>
     );
 
-    expect(screen.queryByText('Some content')).toBeInTheDocument();
+    expect(screen.getByText('Some content')).toBeInTheDocument();
   });
 });

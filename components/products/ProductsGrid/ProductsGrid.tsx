@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useFilterStore } from 'store/filters';
 import ProductCard from '../ProductCard/ProductCard';
-import Dots from 'components/ui/Loaders/Dots';
 import { Product } from 'types/app';
 import s from './ProductsGrid.module.css';
 

@@ -6,9 +6,10 @@ import s from './ProductsRelated.module.css';
 
 interface AppProps {
   category: string;
+  title: string;
 }
 
-const ProductsRelated = ({ category }: AppProps) => {
+const ProductsRelated = ({ category, title }: AppProps) => {
   const cachedProducts = useCachedData<Product[]>('products');
 
   return (
@@ -17,8 +18,10 @@ const ProductsRelated = ({ category }: AppProps) => {
       <div className={s.products}>
         {cachedProducts &&
           cachedProducts
-            .filter((p) =>
-              p.category.toLowerCase().includes(category.toLowerCase())
+            .filter(
+              (p) =>
+                p.category.toLowerCase().includes(category.toLowerCase()) &&
+                p.title !== title
             )
             .slice(0, 8)
             .map((el) => (

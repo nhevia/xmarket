@@ -1,19 +1,24 @@
-import Navbar from './Navbar';
 import { screen, render } from '@testing-library/react';
+import Navbar from './Navbar';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
 describe('Navbar', () => {
-  beforeAll(() => {
-    render(<Navbar />);
-  });
+  const queryClient = new QueryClient();
 
-  it('renders the navbar element', () => {
-    screen.getByLabelText('main navigation');
+  it('renders the default navbar element', () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Navbar />
+      </QueryClientProvider>
+    );
+
+    expect(screen.getByLabelText('main navigation')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Apparel' })).toHaveAttribute(
       'href',
       '/products'
     );
-    screen.getByRole('textbox');
-    screen.getByAltText('go to the shopping cart');
-    screen.getByLabelText('login');
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    expect(screen.getByAltText('go to the shopping cart')).toBeInTheDocument();
+    expect(screen.getByLabelText('login')).toBeInTheDocument();
   });
 });
